@@ -1,0 +1,98 @@
+Using the `WAND_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+[INFO|configuration_utils.py:583] 2025-06-22 20:39:41,389 >> loading configuration file https://huggingface.co/bert-large-uncased/resolve/main/config.json from cache at /u/achen12/.cache/huggingface/transformers/1cf090f220f9674b67b3434decfe4d40a6532d7849653eac435ff94d31a4904c.1d03e5e4fa2db2532c517b2cd98290d8444b237619bd3d2039850a6d5e86473d
+[INFO|configuration_utils.py:620] 2025-06-22 20:39:41,389 >> Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|configuration_utils.py:583] 2025-06-22 20:39:41,504 >> loading configuration file https://huggingface.co/bert-large-uncased/resolve/main/config.json from cache at /u/achen12/.cache/huggingface/transformers/1cf090f220f9674b67b3434decfe4d40a6532d7849653eac435ff94d31a4904c.1d03e5e4fa2db2532c517b2cd98290d8444b237619bd3d2039850a6d5e86473d
+[INFO|configuration_utils.py:620] 2025-06-22 20:39:41,505 >> Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:39:42,006 >> loading file https://huggingface.co/bert-large-uncased/resolve/main/vocab.txt from cache at /u/achen12/.cache/huggingface/transformers/e12f02d630da91a0982ce6db1ad595231d155a2b725ab106971898276d842ecc.d789d64ebfe299b0e416afc4a169632f903f693095b4629a7ea271d5a0cf2c99
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:39:42,007 >> loading file https://huggingface.co/bert-large-uncased/resolve/main/tokenizer.json from cache at /u/achen12/.cache/huggingface/transformers/475d46024228961ca8770cead39e1079f135fd2441d14cf216727ffac8d41d78.7f2721073f19841be16f41b0a70b600ca6b880c8f3df6f3535cbc704371bdfa4
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:39:42,007 >> loading file https://huggingface.co/bert-large-uncased/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:39:42,007 >> loading file https://huggingface.co/bert-large-uncased/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:39:42,007 >> loading file https://huggingface.co/bert-large-uncased/resolve/main/tokenizer_config.json from cache at /u/achen12/.cache/huggingface/transformers/300ecd79785b4602752c0085f8a89c3f0232ef367eda291c79a5600f3778b677.76ea01b4b85ac16e2cec55c398cba7a943d89ab21dfdd973f6630a152e4b9aed
+[INFO|configuration_utils.py:583] 2025-06-22 20:39:42,110 >> loading configuration file https://huggingface.co/bert-large-uncased/resolve/main/config.json from cache at /u/achen12/.cache/huggingface/transformers/1cf090f220f9674b67b3434decfe4d40a6532d7849653eac435ff94d31a4904c.1d03e5e4fa2db2532c517b2cd98290d8444b237619bd3d2039850a6d5e86473d
+[INFO|configuration_utils.py:620] 2025-06-22 20:39:42,111 >> Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+Traceback (most recent call last):
+  File "/projects/beqy/achen12/P-tuning-v2/run.py", line 134, in <module>
+    trainer, predict_dataset = get_trainer(args)
+  File "/projects/beqy/achen12/P-tuning-v2/tasks/ner/get_trainer.py", line 38, in get_trainer
+    dataset = NERDataset(tokenizer, data_args, training_args)
+  File "/projects/beqy/achen12/P-tuning-v2/tasks/ner/dataset.py", line 13, in __init__
+    raw_datasets = load_dataset(f'tasks/ner/datasets/{data_args.dataset_name}.py')
+  File "/u/achen12/miniconda3/envs/pt2/lib/python3.8/site-packages/datasets/load.py", line 1604, in load_dataset
+    builder_instance = load_dataset_builder(
+  File "/u/achen12/miniconda3/envs/pt2/lib/python3.8/site-packages/datasets/load.py", line 1441, in load_dataset_builder
+    dataset_module = dataset_module_factory(
+  File "/u/achen12/miniconda3/envs/pt2/lib/python3.8/site-packages/datasets/load.py", line 1080, in dataset_module_factory
+    raise FileNotFoundError(f"Couldn't find a dataset script at {relative_to_absolute_path(path)}")
+FileNotFoundError: Couldn't find a dataset script at /projects/beqy/achen12/tasks/ner/datasets/ontonotes.py

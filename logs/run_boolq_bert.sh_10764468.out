@@ -1,0 +1,99 @@
+2025-06-22 20:42:53,430 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+2025-06-22 20:42:53,431 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.005,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=checkpoints/boolq-bert/runs/Jun22_20-42-53_gpua047.delta.ncsa.illinois.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=100.0,
+output_dir=checkpoints/boolq-bert/,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=32,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=checkpoints/boolq-bert/,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.NO,
+save_total_limit=None,
+seed=11,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+2025-06-22 20:42:56,433 - INFO - datasets.info - Loading Dataset Infos from /u/achen12/.cache/huggingface/modules/datasets_modules/datasets/super_glue/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83
+2025-06-22 20:42:56,447 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+2025-06-22 20:42:56,447 - INFO - datasets.info - Loading Dataset info from /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83
+2025-06-22 20:42:56,451 - WARNING - datasets.builder - Reusing dataset super_glue (/u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83)
+2025-06-22 20:42:56,452 - INFO - datasets.info - Loading Dataset info from /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83
+{'False': 0, 'True': 1}
+{0: 'False', 1: 'True'}
+2025-06-22 20:42:56,499 - WARNING - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7f0ccfa86f70> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+2025-06-22 20:42:56,499 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-dda1494c73cf256d.arrow
+2025-06-22 20:42:56,526 - INFO - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7f0ccfa868b0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+2025-06-22 20:42:56,526 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-db5b5fab8f4d3e27.arrow
+2025-06-22 20:42:56,541 - INFO - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7f0ccfa86f70> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+2025-06-22 20:42:56,542 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-c7fde805ec99108d.arrow
+2025-06-22 20:42:56,936 - INFO - tasks.superglue.get_trainer - Sample 7629 of the training set: {'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'idx': 7629, 'input_ids': [101, 1132, 1957, 2088, 1105, 2448, 1129, 24067, 1103, 1269, 102, 3139, 4791, 113, 1244, 1311, 1740, 114, 118, 118, 1109, 1244, 1311, 1740, 3139, 4791, 117, 27963, 1227, 1112, 1103, 2565, 4108, 24067, 1496, 1106, 1147, 7884, 1555, 1246, 2176, 1813, 117, 1132, 170, 1957, 2500, 2049, 13940, 1114, 1421, 2425, 6178, 131, 27668, 9405, 113, 1103, 1560, 1105, 1211, 1696, 2862, 1104, 3139, 4791, 114, 117, 2880, 4422, 3948, 117, 1957, 11469, 117, 2904, 2168, 117, 1105, 4073, 118, 12010, 119, 1109, 1148, 1160, 19291, 1846, 117, 3057, 117, 1105, 2013, 4196, 1107, 1684, 1114, 2880, 2830, 119, 2189, 5078, 1511, 4127, 3403, 1105, 5431, 113, 24821, 12426, 114, 117, 4073, 118, 9468, 19878, 24262, 117, 4073, 118, 23766, 117, 14551, 5431, 117, 13879, 5052, 102], 'label': 1, 'passage': 'Special Forces (United States Army) -- The United States Army Special Forces, colloquially known as the Green Berets due to their distinctive service headgear, are a special operations force tasked with five primary missions: unconventional warfare (the original and most important mission of Special Forces), foreign internal defense, special reconnaissance, direct action, and counter-terrorism. The first two emphasize language, cultural, and training skills in working with foreign troops. Other duties include combat search and rescue (CSAR), counter-narcotics, counter-proliferation, hostage rescue, humanitarian assistance, humanitarian demining, information operations, peacekeeping, psychological operations, security assistance, and manhunts; other components of the United States Special Operations Command (USSOCOM) or other U.S. government activities may also specialize in these secondary areas. Many of their operational techniques are classified, but some nonfiction works and doctrinal manuals are available.', 'question': 'are special forces and green berets the same', 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}.
+2025-06-22 20:42:56,938 - INFO - tasks.superglue.get_trainer - Sample 7402 of the training set: {'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'idx': 7402, 'input_ids': [101, 9455, 20695, 2217, 1110, 170, 4065, 1104, 26410, 11776, 2276, 1137, 6014, 102, 11300, 20695, 2217, 118, 118, 11300, 20695, 2217, 1110, 1103, 4065, 1104, 1103, 2765, 5120, 1107, 1134, 170, 4701, 2765, 16994, 1211, 1104, 1157, 1297, 119, 1507, 1142, 4065, 117, 1103, 2765, 4034, 1157, 5394, 1107, 7288, 1111, 26410, 11776, 119, 11300, 20695, 2217, 1110, 1103, 112, 3828, 1690, 112, 1137, 25158, 4065, 1104, 1103, 2765, 117, 1107, 1134, 1103, 2765, 6268, 1116, 22667, 1105, 27154, 15792, 9534, 1172, 117, 7096, 117, 9568, 1157, 5394, 117, 1105, 19706, 1168, 169, 169, 2999, 112, 112, 2765, 4226, 119, 1109, 2656, 1104, 174, 12658, 26503, 2941, 3652, 4511, 1211, 1104, 1147, 1159, 1107, 9455, 20695, 2217, 119, 1188, 4065, 1108, 3147, 1270, 1103, 8137, 4065, 102], 'label': 1, 'passage': "Interphase -- Interphase is the phase of the cell cycle in which a typical cell spends most of its life. During this phase, the cell copies its DNA in preparation for mitosis. Interphase is the 'daily living' or metabolic phase of the cell, in which the cell obtains nutrients and metabolizes them, grows, reads its DNA, and conducts other ``normal'' cell functions. The majority of eukaryotic cells spend most of their time in interphase. This phase was formerly called the resting phase. However, interphase does not describe a cell that is merely resting; rather, the cell is living, and preparing for later cell division, so the name was changed. A common misconception is that interphase is the first stage of mitosis. However, since mitosis is the division of the nucleus, prophase is actually the first stage.", 'question': 'interphase is a phase of mitosis true or false', 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}.
+2025-06-22 20:42:56,942 - INFO - tasks.superglue.get_trainer - Sample 8320 of the training set: {'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'idx': 8320, 'input_ids': [101, 1169, 170, 27447, 1295, 1129, 170, 1842, 1295, 102, 146, 10582, 15937, 1295, 118, 118, 1130, 6686, 117, 1103, 27447, 2849, 1132, 1155, 1103, 1842, 2849, 1134, 1132, 1136, 12478, 2849, 117, 1103, 2985, 1217, 1103, 2849, 3033, 1121, 24576, 113, 1137, 13394, 1116, 114, 1104, 27264, 119, 1332, 1103, 6022, 1104, 10707, 1104, 1160, 1413, 9038, 1110, 1126, 27447, 1295, 117, 1103, 1413, 9038, 1132, 1145, 1758, 1112, 1217, 1107, 8178, 2354, 6385, 9739, 117, 2764, 1115, 1152, 2934, 1185, 169, 169, 4929, 112, 112, 1107, 1887, 117, 1115, 1110, 117, 1175, 1110, 1185, 2251, 113, 169, 169, 1103, 4929, 112, 112, 114, 117, 1185, 2187, 1293, 1603, 117, 1115, 1180, 1129, 1215, 1106, 6848, 1103, 10707, 1104, 1241, 1104, 1103, 1160, 1549, 9038, 1112, 102], 'label': 1, 'passage': "Irrational number -- In mathematics, the irrational numbers are all the real numbers which are not rational numbers, the latter being the numbers constructed from ratios (or fractions) of integers. When the ratio of lengths of two line segments is an irrational number, the line segments are also described as being incommensurable, meaning that they share no ``measure'' in common, that is, there is no length (``the measure''), no matter how short, that could be used to express the lengths of both of the two given segments as integer multiples of itself.", 'question': 'can a irrational number be a real number', 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}.
+total param is 1968130

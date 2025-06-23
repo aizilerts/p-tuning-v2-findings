@@ -1,0 +1,878 @@
+06/17/2025 11:34:51 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+06/17/2025 11:34:51 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.005,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=checkpoints/boolq-bert/runs/Jun17_11-34-50_gpua074.delta.ncsa.illinois.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=100.0,
+output_dir=checkpoints/boolq-bert/,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=32,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=checkpoints/boolq-bert/,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.NO,
+save_total_limit=None,
+seed=11,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+06/17/2025 11:34:53 - INFO - datasets.info - Loading Dataset Infos from /u/achen12/.cache/huggingface/modules/datasets_modules/datasets/super_glue/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83
+06/17/2025 11:34:53 - INFO - datasets.builder - Generating dataset super_glue (/u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83)
+Downloading and preparing dataset super_glue/boolq (download: 3.93 MiB, generated: 9.92 MiB, post-processed: Unknown size, total: 13.85 MiB) to /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83...
+06/17/2025 11:34:53 - INFO - datasets.builder - Dataset not on Hf google storage. Downloading and preparing it from source
+06/17/2025 11:34:54 - INFO - datasets.utils.file_utils - https://dl.fbaipublicfiles.com/glue/superglue/data/v2/BoolQ.zip not found in cache or force_download set to True, downloading to /u/achen12/.cache/huggingface/datasets/downloads/tmppoyapd5n
+06/17/2025 11:34:54 - INFO - datasets.utils.file_utils - storing https://dl.fbaipublicfiles.com/glue/superglue/data/v2/BoolQ.zip in cache at /u/achen12/.cache/huggingface/datasets/downloads/0b2e6d994794f97de9cb72d996f200a6cbe67e41867ecc0149581d62ab82d37d
+06/17/2025 11:34:54 - INFO - datasets.utils.file_utils - creating metadata file for /u/achen12/.cache/huggingface/datasets/downloads/0b2e6d994794f97de9cb72d996f200a6cbe67e41867ecc0149581d62ab82d37d
+06/17/2025 11:34:54 - INFO - datasets.utils.download_manager - Downloading took 0.0 min
+06/17/2025 11:34:54 - INFO - datasets.utils.download_manager - Checksum Computation took 0.0 min
+06/17/2025 11:34:54 - INFO - datasets.utils.info_utils - All the checksums matched successfully for dataset source files
+06/17/2025 11:34:54 - INFO - datasets.builder - Generating split train
+06/17/2025 11:34:55 - INFO - datasets.builder - Generating split validation
+06/17/2025 11:34:55 - INFO - datasets.builder - Generating split test
+06/17/2025 11:34:55 - INFO - datasets.utils.info_utils - All the splits matched successfully.
+Dataset super_glue downloaded and prepared to /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83. Subsequent calls will reuse this data.
+{'False': 0, 'True': 1}
+{0: 'False', 1: 'True'}
+06/17/2025 11:34:55 - WARNING - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7fc9cbc17940> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+06/17/2025 11:34:55 - INFO - datasets.arrow_dataset - Caching processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-dda1494c73cf256d.arrow
+06/17/2025 11:34:58 - INFO - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7fc9cbc17790> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+06/17/2025 11:34:58 - INFO - datasets.arrow_dataset - Caching processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-db5b5fab8f4d3e27.arrow
+06/17/2025 11:34:59 - INFO - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7fc9cbc17940> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+06/17/2025 11:34:59 - INFO - datasets.arrow_dataset - Caching processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/boolq/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-c7fde805ec99108d.arrow
+06/17/2025 11:35:00 - INFO - tasks.superglue.get_trainer - Sample 7629 of the training set: {'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'idx': 7629, 'input_ids': [101, 1132, 1957, 2088, 1105, 2448, 1129, 24067, 1103, 1269, 102, 3139, 4791, 113, 1244, 1311, 1740, 114, 118, 118, 1109, 1244, 1311, 1740, 3139, 4791, 117, 27963, 1227, 1112, 1103, 2565, 4108, 24067, 1496, 1106, 1147, 7884, 1555, 1246, 2176, 1813, 117, 1132, 170, 1957, 2500, 2049, 13940, 1114, 1421, 2425, 6178, 131, 27668, 9405, 113, 1103, 1560, 1105, 1211, 1696, 2862, 1104, 3139, 4791, 114, 117, 2880, 4422, 3948, 117, 1957, 11469, 117, 2904, 2168, 117, 1105, 4073, 118, 12010, 119, 1109, 1148, 1160, 19291, 1846, 117, 3057, 117, 1105, 2013, 4196, 1107, 1684, 1114, 2880, 2830, 119, 2189, 5078, 1511, 4127, 3403, 1105, 5431, 113, 24821, 12426, 114, 117, 4073, 118, 9468, 19878, 24262, 117, 4073, 118, 23766, 117, 14551, 5431, 117, 13879, 5052, 102], 'label': 1, 'passage': 'Special Forces (United States Army) -- The United States Army Special Forces, colloquially known as the Green Berets due to their distinctive service headgear, are a special operations force tasked with five primary missions: unconventional warfare (the original and most important mission of Special Forces), foreign internal defense, special reconnaissance, direct action, and counter-terrorism. The first two emphasize language, cultural, and training skills in working with foreign troops. Other duties include combat search and rescue (CSAR), counter-narcotics, counter-proliferation, hostage rescue, humanitarian assistance, humanitarian demining, information operations, peacekeeping, psychological operations, security assistance, and manhunts; other components of the United States Special Operations Command (USSOCOM) or other U.S. government activities may also specialize in these secondary areas. Many of their operational techniques are classified, but some nonfiction works and doctrinal manuals are available.', 'question': 'are special forces and green berets the same', 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}.
+06/17/2025 11:35:00 - INFO - tasks.superglue.get_trainer - Sample 7402 of the training set: {'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'idx': 7402, 'input_ids': [101, 9455, 20695, 2217, 1110, 170, 4065, 1104, 26410, 11776, 2276, 1137, 6014, 102, 11300, 20695, 2217, 118, 118, 11300, 20695, 2217, 1110, 1103, 4065, 1104, 1103, 2765, 5120, 1107, 1134, 170, 4701, 2765, 16994, 1211, 1104, 1157, 1297, 119, 1507, 1142, 4065, 117, 1103, 2765, 4034, 1157, 5394, 1107, 7288, 1111, 26410, 11776, 119, 11300, 20695, 2217, 1110, 1103, 112, 3828, 1690, 112, 1137, 25158, 4065, 1104, 1103, 2765, 117, 1107, 1134, 1103, 2765, 6268, 1116, 22667, 1105, 27154, 15792, 9534, 1172, 117, 7096, 117, 9568, 1157, 5394, 117, 1105, 19706, 1168, 169, 169, 2999, 112, 112, 2765, 4226, 119, 1109, 2656, 1104, 174, 12658, 26503, 2941, 3652, 4511, 1211, 1104, 1147, 1159, 1107, 9455, 20695, 2217, 119, 1188, 4065, 1108, 3147, 1270, 1103, 8137, 4065, 102], 'label': 1, 'passage': "Interphase -- Interphase is the phase of the cell cycle in which a typical cell spends most of its life. During this phase, the cell copies its DNA in preparation for mitosis. Interphase is the 'daily living' or metabolic phase of the cell, in which the cell obtains nutrients and metabolizes them, grows, reads its DNA, and conducts other ``normal'' cell functions. The majority of eukaryotic cells spend most of their time in interphase. This phase was formerly called the resting phase. However, interphase does not describe a cell that is merely resting; rather, the cell is living, and preparing for later cell division, so the name was changed. A common misconception is that interphase is the first stage of mitosis. However, since mitosis is the division of the nucleus, prophase is actually the first stage.", 'question': 'interphase is a phase of mitosis true or false', 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}.
+06/17/2025 11:35:00 - INFO - tasks.superglue.get_trainer - Sample 8320 of the training set: {'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'idx': 8320, 'input_ids': [101, 1169, 170, 27447, 1295, 1129, 170, 1842, 1295, 102, 146, 10582, 15937, 1295, 118, 118, 1130, 6686, 117, 1103, 27447, 2849, 1132, 1155, 1103, 1842, 2849, 1134, 1132, 1136, 12478, 2849, 117, 1103, 2985, 1217, 1103, 2849, 3033, 1121, 24576, 113, 1137, 13394, 1116, 114, 1104, 27264, 119, 1332, 1103, 6022, 1104, 10707, 1104, 1160, 1413, 9038, 1110, 1126, 27447, 1295, 117, 1103, 1413, 9038, 1132, 1145, 1758, 1112, 1217, 1107, 8178, 2354, 6385, 9739, 117, 2764, 1115, 1152, 2934, 1185, 169, 169, 4929, 112, 112, 1107, 1887, 117, 1115, 1110, 117, 1175, 1110, 1185, 2251, 113, 169, 169, 1103, 4929, 112, 112, 114, 117, 1185, 2187, 1293, 1603, 117, 1115, 1180, 1129, 1215, 1106, 6848, 1103, 10707, 1104, 1241, 1104, 1103, 1160, 1549, 9038, 1112, 102], 'label': 1, 'passage': "Irrational number -- In mathematics, the irrational numbers are all the real numbers which are not rational numbers, the latter being the numbers constructed from ratios (or fractions) of integers. When the ratio of lengths of two line segments is an irrational number, the line segments are also described as being incommensurable, meaning that they share no ``measure'' in common, that is, there is no length (``the measure''), no matter how short, that could be used to express the lengths of both of the two given segments as integer multiples of itself.", 'question': 'can a irrational number be a real number', 'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}.
+total param is 1968130
+06/17/2025 11:37:16 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6733079552650452, 'eval_accuracy': 0.608868501529052, 'eval_runtime': 21.6258, 'eval_samples_per_second': 151.208, 'eval_steps_per_second': 18.913, 'epoch': 1.0}
+06/17/2025 11:37:16 - INFO - training.trainer_base - ***** Epoch 0: Best results *****
+06/17/2025 11:37:16 - INFO - training.trainer_base - best_epoch = 0
+06/17/2025 11:37:16 - INFO - training.trainer_base - best_eval_accuracy = 0.608868501529052
+OrderedDict([('best_epoch', 0), ('best_eval_accuracy', 0.608868501529052), ('epoch', 1.0)])
+{'loss': 0.8655, 'learning_rate': 0.004915254237288136, 'epoch': 1.69}
+06/17/2025 11:39:26 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.754239559173584, 'eval_accuracy': 0.618348623853211, 'eval_runtime': 21.6515, 'eval_samples_per_second': 151.029, 'eval_steps_per_second': 18.89, 'epoch': 2.0}
+06/17/2025 11:39:26 - INFO - training.trainer_base - ***** Epoch 1: Best results *****
+06/17/2025 11:39:26 - INFO - training.trainer_base - best_epoch = 1
+06/17/2025 11:39:26 - INFO - training.trainer_base - best_eval_accuracy = 0.618348623853211
+06/17/2025 11:39:26 - INFO - training.trainer_base - epoch = 1.0
+OrderedDict([('best_epoch', 1), ('best_eval_accuracy', 0.618348623853211), ('epoch', 2.0)])
+06/17/2025 11:41:36 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.9644709825515747, 'eval_accuracy': 0.38470948012232414, 'eval_runtime': 21.6927, 'eval_samples_per_second': 150.742, 'eval_steps_per_second': 18.854, 'epoch': 3.0}
+06/17/2025 11:41:36 - INFO - training.trainer_base - ***** Epoch 2: Best results *****
+06/17/2025 11:41:36 - INFO - training.trainer_base - best_epoch = 1
+06/17/2025 11:41:36 - INFO - training.trainer_base - best_eval_accuracy = 0.618348623853211
+06/17/2025 11:41:36 - INFO - training.trainer_base - epoch = 2.0
+OrderedDict([('best_epoch', 1), ('best_eval_accuracy', 0.618348623853211), ('epoch', 3.0)])
+{'loss': 0.7847, 'learning_rate': 0.004830508474576271, 'epoch': 3.39}
+06/17/2025 11:43:46 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.673093318939209, 'eval_accuracy': 0.5862385321100917, 'eval_runtime': 21.6669, 'eval_samples_per_second': 150.922, 'eval_steps_per_second': 18.877, 'epoch': 4.0}
+06/17/2025 11:43:46 - INFO - training.trainer_base - ***** Epoch 3: Best results *****
+06/17/2025 11:43:46 - INFO - training.trainer_base - best_epoch = 1
+06/17/2025 11:43:46 - INFO - training.trainer_base - best_eval_accuracy = 0.618348623853211
+06/17/2025 11:43:46 - INFO - training.trainer_base - epoch = 3.0
+OrderedDict([('best_epoch', 1), ('best_eval_accuracy', 0.618348623853211), ('epoch', 4.0)])
+06/17/2025 11:45:56 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6682707071304321, 'eval_accuracy': 0.6162079510703364, 'eval_runtime': 21.6524, 'eval_samples_per_second': 151.023, 'eval_steps_per_second': 18.889, 'epoch': 5.0}
+06/17/2025 11:45:56 - INFO - training.trainer_base - ***** Epoch 4: Best results *****
+06/17/2025 11:45:56 - INFO - training.trainer_base - best_epoch = 1
+06/17/2025 11:45:56 - INFO - training.trainer_base - best_eval_accuracy = 0.618348623853211
+06/17/2025 11:45:56 - INFO - training.trainer_base - epoch = 4.0
+OrderedDict([('best_epoch', 1), ('best_eval_accuracy', 0.618348623853211), ('epoch', 5.0)])
+{'loss': 0.7845, 'learning_rate': 0.004745762711864407, 'epoch': 5.08}
+06/17/2025 11:48:10 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.7333200573921204, 'eval_accuracy': 0.6217125382262997, 'eval_runtime': 24.6926, 'eval_samples_per_second': 132.429, 'eval_steps_per_second': 16.564, 'epoch': 6.0}
+06/17/2025 11:48:10 - INFO - training.trainer_base - ***** Epoch 5: Best results *****
+06/17/2025 11:48:10 - INFO - training.trainer_base - best_epoch = 5
+06/17/2025 11:48:10 - INFO - training.trainer_base - best_eval_accuracy = 0.6217125382262997
+06/17/2025 11:48:10 - INFO - training.trainer_base - epoch = 5.0
+OrderedDict([('best_epoch', 5), ('best_eval_accuracy', 0.6217125382262997), ('epoch', 6.0)])
+{'loss': 0.763, 'learning_rate': 0.004661016949152543, 'epoch': 6.78}
+06/17/2025 11:50:33 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6448835134506226, 'eval_accuracy': 0.6351681957186545, 'eval_runtime': 22.4494, 'eval_samples_per_second': 145.661, 'eval_steps_per_second': 18.219, 'epoch': 7.0}
+06/17/2025 11:50:33 - INFO - training.trainer_base - ***** Epoch 6: Best results *****
+06/17/2025 11:50:33 - INFO - training.trainer_base - best_epoch = 6
+06/17/2025 11:50:33 - INFO - training.trainer_base - best_eval_accuracy = 0.6351681957186545
+06/17/2025 11:50:33 - INFO - training.trainer_base - epoch = 6.0
+OrderedDict([('best_epoch', 6), ('best_eval_accuracy', 0.6351681957186545), ('epoch', 7.0)])
+06/17/2025 11:52:47 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6335504651069641, 'eval_accuracy': 0.655045871559633, 'eval_runtime': 23.567, 'eval_samples_per_second': 138.753, 'eval_steps_per_second': 17.355, 'epoch': 8.0}
+06/17/2025 11:52:48 - INFO - training.trainer_base - ***** Epoch 7: Best results *****
+06/17/2025 11:52:48 - INFO - training.trainer_base - best_epoch = 7
+06/17/2025 11:52:48 - INFO - training.trainer_base - best_eval_accuracy = 0.655045871559633
+06/17/2025 11:52:48 - INFO - training.trainer_base - epoch = 7.0
+OrderedDict([('best_epoch', 7), ('best_eval_accuracy', 0.655045871559633), ('epoch', 8.0)])
+{'loss': 0.7045, 'learning_rate': 0.004576271186440678, 'epoch': 8.47}
+06/17/2025 11:55:12 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6821723580360413, 'eval_accuracy': 0.6128440366972477, 'eval_runtime': 24.8758, 'eval_samples_per_second': 131.453, 'eval_steps_per_second': 16.442, 'epoch': 9.0}
+06/17/2025 11:55:12 - INFO - training.trainer_base - ***** Epoch 8: Best results *****
+06/17/2025 11:55:12 - INFO - training.trainer_base - best_epoch = 7
+06/17/2025 11:55:12 - INFO - training.trainer_base - best_eval_accuracy = 0.655045871559633
+06/17/2025 11:55:12 - INFO - training.trainer_base - epoch = 8.0
+OrderedDict([('best_epoch', 7), ('best_eval_accuracy', 0.655045871559633), ('epoch', 9.0)])
+06/17/2025 11:57:22 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6524515748023987, 'eval_accuracy': 0.6608562691131499, 'eval_runtime': 21.6745, 'eval_samples_per_second': 150.868, 'eval_steps_per_second': 18.87, 'epoch': 10.0}
+06/17/2025 11:57:22 - INFO - training.trainer_base - ***** Epoch 9: Best results *****
+06/17/2025 11:57:22 - INFO - training.trainer_base - best_epoch = 9
+06/17/2025 11:57:22 - INFO - training.trainer_base - best_eval_accuracy = 0.6608562691131499
+06/17/2025 11:57:22 - INFO - training.trainer_base - epoch = 9.0
+OrderedDict([('best_epoch', 9), ('best_eval_accuracy', 0.6608562691131499), ('epoch', 10.0)])
+{'loss': 0.6557, 'learning_rate': 0.004491525423728814, 'epoch': 10.17}
+06/17/2025 11:59:33 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.590752124786377, 'eval_accuracy': 0.6892966360856269, 'eval_runtime': 21.6698, 'eval_samples_per_second': 150.901, 'eval_steps_per_second': 18.874, 'epoch': 11.0}
+06/17/2025 11:59:33 - INFO - training.trainer_base - ***** Epoch 10: Best results *****
+06/17/2025 11:59:33 - INFO - training.trainer_base - best_epoch = 10
+06/17/2025 11:59:33 - INFO - training.trainer_base - best_eval_accuracy = 0.6892966360856269
+06/17/2025 11:59:33 - INFO - training.trainer_base - epoch = 10.0
+OrderedDict([('best_epoch', 10), ('best_eval_accuracy', 0.6892966360856269), ('epoch', 11.0)])
+{'loss': 0.6035, 'learning_rate': 0.004406779661016949, 'epoch': 11.86}
+06/17/2025 12:01:43 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6112833619117737, 'eval_accuracy': 0.6785932721712539, 'eval_runtime': 21.6704, 'eval_samples_per_second': 150.897, 'eval_steps_per_second': 18.874, 'epoch': 12.0}
+06/17/2025 12:01:43 - INFO - training.trainer_base - ***** Epoch 11: Best results *****
+06/17/2025 12:01:43 - INFO - training.trainer_base - best_epoch = 10
+06/17/2025 12:01:43 - INFO - training.trainer_base - best_eval_accuracy = 0.6892966360856269
+06/17/2025 12:01:43 - INFO - training.trainer_base - epoch = 11.0
+OrderedDict([('best_epoch', 10), ('best_eval_accuracy', 0.6892966360856269), ('epoch', 12.0)])
+06/17/2025 12:04:09 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.5757841467857361, 'eval_accuracy': 0.6996941896024464, 'eval_runtime': 21.499, 'eval_samples_per_second': 152.1, 'eval_steps_per_second': 19.024, 'epoch': 13.0}
+06/17/2025 12:04:09 - INFO - training.trainer_base - ***** Epoch 12: Best results *****
+06/17/2025 12:04:09 - INFO - training.trainer_base - best_epoch = 12
+06/17/2025 12:04:09 - INFO - training.trainer_base - best_eval_accuracy = 0.6996941896024464
+06/17/2025 12:04:09 - INFO - training.trainer_base - epoch = 12.0
+OrderedDict([('best_epoch', 12), ('best_eval_accuracy', 0.6996941896024464), ('epoch', 13.0)])
+{'loss': 0.5777, 'learning_rate': 0.004322033898305085, 'epoch': 13.56}
+06/17/2025 12:06:18 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.5850501656532288, 'eval_accuracy': 0.7061162079510703, 'eval_runtime': 21.2769, 'eval_samples_per_second': 153.688, 'eval_steps_per_second': 19.223, 'epoch': 14.0}
+06/17/2025 12:06:18 - INFO - training.trainer_base - ***** Epoch 13: Best results *****
+06/17/2025 12:06:18 - INFO - training.trainer_base - best_epoch = 13
+06/17/2025 12:06:18 - INFO - training.trainer_base - best_eval_accuracy = 0.7061162079510703
+06/17/2025 12:06:18 - INFO - training.trainer_base - epoch = 13.0
+OrderedDict([('best_epoch', 13), ('best_eval_accuracy', 0.7061162079510703), ('epoch', 14.0)])
+06/17/2025 12:08:27 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6200360059738159, 'eval_accuracy': 0.7027522935779816, 'eval_runtime': 21.2189, 'eval_samples_per_second': 154.108, 'eval_steps_per_second': 19.275, 'epoch': 15.0}
+06/17/2025 12:08:27 - INFO - training.trainer_base - ***** Epoch 14: Best results *****
+06/17/2025 12:08:27 - INFO - training.trainer_base - best_epoch = 13
+06/17/2025 12:08:27 - INFO - training.trainer_base - best_eval_accuracy = 0.7061162079510703
+06/17/2025 12:08:27 - INFO - training.trainer_base - epoch = 14.0
+OrderedDict([('best_epoch', 13), ('best_eval_accuracy', 0.7061162079510703), ('epoch', 15.0)])
+{'loss': 0.5589, 'learning_rate': 0.00423728813559322, 'epoch': 15.25}
+06/17/2025 12:10:36 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.702748715877533, 'eval_accuracy': 0.6299694189602446, 'eval_runtime': 21.2742, 'eval_samples_per_second': 153.707, 'eval_steps_per_second': 19.225, 'epoch': 16.0}
+06/17/2025 12:10:36 - INFO - training.trainer_base - ***** Epoch 15: Best results *****
+06/17/2025 12:10:36 - INFO - training.trainer_base - best_epoch = 13
+06/17/2025 12:10:36 - INFO - training.trainer_base - best_eval_accuracy = 0.7061162079510703
+06/17/2025 12:10:36 - INFO - training.trainer_base - epoch = 15.0
+OrderedDict([('best_epoch', 13), ('best_eval_accuracy', 0.7061162079510703), ('epoch', 16.0)])
+{'loss': 0.5324, 'learning_rate': 0.004152542372881356, 'epoch': 16.95}
+06/17/2025 12:12:57 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.5974593162536621, 'eval_accuracy': 0.691131498470948, 'eval_runtime': 22.003, 'eval_samples_per_second': 148.616, 'eval_steps_per_second': 18.588, 'epoch': 17.0}
+06/17/2025 12:12:57 - INFO - training.trainer_base - ***** Epoch 16: Best results *****
+06/17/2025 12:12:57 - INFO - training.trainer_base - best_epoch = 13
+06/17/2025 12:12:57 - INFO - training.trainer_base - best_eval_accuracy = 0.7061162079510703
+06/17/2025 12:12:57 - INFO - training.trainer_base - epoch = 16.0
+OrderedDict([('best_epoch', 13), ('best_eval_accuracy', 0.7061162079510703), ('epoch', 17.0)])
+06/17/2025 12:15:50 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.5954785943031311, 'eval_accuracy': 0.7064220183486238, 'eval_runtime': 21.239, 'eval_samples_per_second': 153.962, 'eval_steps_per_second': 19.257, 'epoch': 18.0}
+06/17/2025 12:15:50 - INFO - training.trainer_base - ***** Epoch 17: Best results *****
+06/17/2025 12:15:50 - INFO - training.trainer_base - best_epoch = 17
+06/17/2025 12:15:50 - INFO - training.trainer_base - best_eval_accuracy = 0.7064220183486238
+06/17/2025 12:15:50 - INFO - training.trainer_base - epoch = 17.0
+OrderedDict([('best_epoch', 17), ('best_eval_accuracy', 0.7064220183486238), ('epoch', 18.0)])
+{'loss': 0.5059, 'learning_rate': 0.004067796610169492, 'epoch': 18.64}
+06/17/2025 12:18:00 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6325642466545105, 'eval_accuracy': 0.7070336391437309, 'eval_runtime': 21.2405, 'eval_samples_per_second': 153.951, 'eval_steps_per_second': 19.256, 'epoch': 19.0}
+06/17/2025 12:18:00 - INFO - training.trainer_base - ***** Epoch 18: Best results *****
+06/17/2025 12:18:00 - INFO - training.trainer_base - best_epoch = 18
+06/17/2025 12:18:00 - INFO - training.trainer_base - best_eval_accuracy = 0.7070336391437309
+06/17/2025 12:18:00 - INFO - training.trainer_base - epoch = 18.0
+OrderedDict([('best_epoch', 18), ('best_eval_accuracy', 0.7070336391437309), ('epoch', 19.0)])
+06/17/2025 12:20:20 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.573837161064148, 'eval_accuracy': 0.7061162079510703, 'eval_runtime': 24.2455, 'eval_samples_per_second': 134.87, 'eval_steps_per_second': 16.869, 'epoch': 20.0}
+06/17/2025 12:20:20 - INFO - training.trainer_base - ***** Epoch 19: Best results *****
+06/17/2025 12:20:20 - INFO - training.trainer_base - best_epoch = 18
+06/17/2025 12:20:20 - INFO - training.trainer_base - best_eval_accuracy = 0.7070336391437309
+06/17/2025 12:20:20 - INFO - training.trainer_base - epoch = 19.0
+OrderedDict([('best_epoch', 18), ('best_eval_accuracy', 0.7070336391437309), ('epoch', 20.0)])
+{'loss': 0.4796, 'learning_rate': 0.003983050847457627, 'epoch': 20.34}
+06/17/2025 12:22:44 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6040083169937134, 'eval_accuracy': 0.7180428134556575, 'eval_runtime': 21.5972, 'eval_samples_per_second': 151.408, 'eval_steps_per_second': 18.938, 'epoch': 21.0}
+06/17/2025 12:22:44 - INFO - training.trainer_base - ***** Epoch 20: Best results *****
+06/17/2025 12:22:44 - INFO - training.trainer_base - best_epoch = 20
+06/17/2025 12:22:44 - INFO - training.trainer_base - best_eval_accuracy = 0.7180428134556575
+06/17/2025 12:22:44 - INFO - training.trainer_base - epoch = 20.0
+OrderedDict([('best_epoch', 20), ('best_eval_accuracy', 0.7180428134556575), ('epoch', 21.0)])
+06/17/2025 12:25:03 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6466241478919983, 'eval_accuracy': 0.6996941896024464, 'eval_runtime': 22.2158, 'eval_samples_per_second': 147.192, 'eval_steps_per_second': 18.41, 'epoch': 22.0}
+06/17/2025 12:25:03 - INFO - training.trainer_base - ***** Epoch 21: Best results *****
+06/17/2025 12:25:03 - INFO - training.trainer_base - best_epoch = 20
+06/17/2025 12:25:03 - INFO - training.trainer_base - best_eval_accuracy = 0.7180428134556575
+06/17/2025 12:25:03 - INFO - training.trainer_base - epoch = 21.0
+OrderedDict([('best_epoch', 20), ('best_eval_accuracy', 0.7180428134556575), ('epoch', 22.0)])
+{'loss': 0.4458, 'learning_rate': 0.003898305084745763, 'epoch': 22.03}
+06/17/2025 12:27:21 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6451894640922546, 'eval_accuracy': 0.7055045871559633, 'eval_runtime': 25.0924, 'eval_samples_per_second': 130.318, 'eval_steps_per_second': 16.3, 'epoch': 23.0}
+06/17/2025 12:27:21 - INFO - training.trainer_base - ***** Epoch 22: Best results *****
+06/17/2025 12:27:21 - INFO - training.trainer_base - best_epoch = 20
+06/17/2025 12:27:21 - INFO - training.trainer_base - best_eval_accuracy = 0.7180428134556575
+06/17/2025 12:27:21 - INFO - training.trainer_base - epoch = 22.0
+OrderedDict([('best_epoch', 20), ('best_eval_accuracy', 0.7180428134556575), ('epoch', 23.0)])
+{'loss': 0.4267, 'learning_rate': 0.003813559322033898, 'epoch': 23.73}
+06/17/2025 12:29:50 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6132389307022095, 'eval_accuracy': 0.7244648318042813, 'eval_runtime': 26.1398, 'eval_samples_per_second': 125.097, 'eval_steps_per_second': 15.647, 'epoch': 24.0}
+06/17/2025 12:29:50 - INFO - training.trainer_base - ***** Epoch 23: Best results *****
+06/17/2025 12:29:50 - INFO - training.trainer_base - best_epoch = 23
+06/17/2025 12:29:50 - INFO - training.trainer_base - best_eval_accuracy = 0.7244648318042813
+06/17/2025 12:29:50 - INFO - training.trainer_base - epoch = 23.0
+OrderedDict([('best_epoch', 23), ('best_eval_accuracy', 0.7244648318042813), ('epoch', 24.0)])
+06/17/2025 12:32:06 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6218159198760986, 'eval_accuracy': 0.7330275229357798, 'eval_runtime': 21.6174, 'eval_samples_per_second': 151.267, 'eval_steps_per_second': 18.92, 'epoch': 25.0}
+06/17/2025 12:32:06 - INFO - training.trainer_base - ***** Epoch 24: Best results *****
+06/17/2025 12:32:06 - INFO - training.trainer_base - best_epoch = 24
+06/17/2025 12:32:06 - INFO - training.trainer_base - best_eval_accuracy = 0.7330275229357798
+06/17/2025 12:32:06 - INFO - training.trainer_base - epoch = 24.0
+OrderedDict([('best_epoch', 24), ('best_eval_accuracy', 0.7330275229357798), ('epoch', 25.0)])
+{'loss': 0.4037, 'learning_rate': 0.003728813559322034, 'epoch': 25.42}
+06/17/2025 12:34:19 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6917234659194946, 'eval_accuracy': 0.6969418960244649, 'eval_runtime': 21.6145, 'eval_samples_per_second': 151.288, 'eval_steps_per_second': 18.923, 'epoch': 26.0}
+06/17/2025 12:34:19 - INFO - training.trainer_base - ***** Epoch 25: Best results *****
+06/17/2025 12:34:19 - INFO - training.trainer_base - best_epoch = 24
+06/17/2025 12:34:19 - INFO - training.trainer_base - best_eval_accuracy = 0.7330275229357798
+06/17/2025 12:34:19 - INFO - training.trainer_base - epoch = 25.0
+OrderedDict([('best_epoch', 24), ('best_eval_accuracy', 0.7330275229357798), ('epoch', 26.0)])
+06/17/2025 12:36:40 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6736252903938293, 'eval_accuracy': 0.7195718654434251, 'eval_runtime': 22.6317, 'eval_samples_per_second': 144.488, 'eval_steps_per_second': 18.072, 'epoch': 27.0}
+06/17/2025 12:36:40 - INFO - training.trainer_base - ***** Epoch 26: Best results *****
+06/17/2025 12:36:40 - INFO - training.trainer_base - best_epoch = 24
+06/17/2025 12:36:40 - INFO - training.trainer_base - best_eval_accuracy = 0.7330275229357798
+06/17/2025 12:36:40 - INFO - training.trainer_base - epoch = 26.0
+OrderedDict([('best_epoch', 24), ('best_eval_accuracy', 0.7330275229357798), ('epoch', 27.0)])
+{'loss': 0.3764, 'learning_rate': 0.0036440677966101693, 'epoch': 27.12}
+06/17/2025 12:38:55 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6862409114837646, 'eval_accuracy': 0.7238532110091743, 'eval_runtime': 21.5979, 'eval_samples_per_second': 151.403, 'eval_steps_per_second': 18.937, 'epoch': 28.0}
+06/17/2025 12:38:55 - INFO - training.trainer_base - ***** Epoch 27: Best results *****
+06/17/2025 12:38:55 - INFO - training.trainer_base - best_epoch = 24
+06/17/2025 12:38:55 - INFO - training.trainer_base - best_eval_accuracy = 0.7330275229357798
+06/17/2025 12:38:55 - INFO - training.trainer_base - epoch = 27.0
+OrderedDict([('best_epoch', 24), ('best_eval_accuracy', 0.7330275229357798), ('epoch', 28.0)])
+{'loss': 0.3472, 'learning_rate': 0.003559322033898305, 'epoch': 28.81}
+06/17/2025 12:41:05 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6814675331115723, 'eval_accuracy': 0.7211009174311926, 'eval_runtime': 21.6374, 'eval_samples_per_second': 151.127, 'eval_steps_per_second': 18.902, 'epoch': 29.0}
+06/17/2025 12:41:05 - INFO - training.trainer_base - ***** Epoch 28: Best results *****
+06/17/2025 12:41:05 - INFO - training.trainer_base - best_epoch = 24
+06/17/2025 12:41:05 - INFO - training.trainer_base - best_eval_accuracy = 0.7330275229357798
+06/17/2025 12:41:05 - INFO - training.trainer_base - epoch = 28.0
+OrderedDict([('best_epoch', 24), ('best_eval_accuracy', 0.7330275229357798), ('epoch', 29.0)])
+06/17/2025 12:43:15 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.6620267033576965, 'eval_accuracy': 0.7302752293577982, 'eval_runtime': 21.6174, 'eval_samples_per_second': 151.267, 'eval_steps_per_second': 18.92, 'epoch': 30.0}
+06/17/2025 12:43:15 - INFO - training.trainer_base - ***** Epoch 29: Best results *****
+06/17/2025 12:43:15 - INFO - training.trainer_base - best_epoch = 24
+06/17/2025 12:43:15 - INFO - training.trainer_base - best_eval_accuracy = 0.7330275229357798
+06/17/2025 12:43:15 - INFO - training.trainer_base - epoch = 29.0
+OrderedDict([('best_epoch', 24), ('best_eval_accuracy', 0.7330275229357798), ('epoch', 30.0)])
+{'loss': 0.3153, 'learning_rate': 0.003474576271186441, 'epoch': 30.51}
+06/17/2025 12:45:24 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.7148229479789734, 'eval_accuracy': 0.7201834862385321, 'eval_runtime': 21.594, 'eval_samples_per_second': 151.431, 'eval_steps_per_second': 18.94, 'epoch': 31.0}
+06/17/2025 12:45:24 - INFO - training.trainer_base - ***** Epoch 30: Best results *****
+06/17/2025 12:45:24 - INFO - training.trainer_base - best_epoch = 24
+06/17/2025 12:45:24 - INFO - training.trainer_base - best_eval_accuracy = 0.7330275229357798
+06/17/2025 12:45:24 - INFO - training.trainer_base - epoch = 30.0
+OrderedDict([('best_epoch', 24), ('best_eval_accuracy', 0.7330275229357798), ('epoch', 31.0)])
+06/17/2025 12:47:34 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.7525016665458679, 'eval_accuracy': 0.7293577981651376, 'eval_runtime': 21.5553, 'eval_samples_per_second': 151.703, 'eval_steps_per_second': 18.974, 'epoch': 32.0}
+06/17/2025 12:47:34 - INFO - training.trainer_base - ***** Epoch 31: Best results *****
+06/17/2025 12:47:34 - INFO - training.trainer_base - best_epoch = 24
+06/17/2025 12:47:34 - INFO - training.trainer_base - best_eval_accuracy = 0.7330275229357798
+06/17/2025 12:47:34 - INFO - training.trainer_base - epoch = 31.0
+OrderedDict([('best_epoch', 24), ('best_eval_accuracy', 0.7330275229357798), ('epoch', 32.0)])
+{'loss': 0.2991, 'learning_rate': 0.003389830508474576, 'epoch': 32.2}
+06/17/2025 12:49:44 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.8191708922386169, 'eval_accuracy': 0.7345565749235474, 'eval_runtime': 21.6043, 'eval_samples_per_second': 151.359, 'eval_steps_per_second': 18.931, 'epoch': 33.0}
+06/17/2025 12:49:44 - INFO - training.trainer_base - ***** Epoch 32: Best results *****
+06/17/2025 12:49:44 - INFO - training.trainer_base - best_epoch = 32
+06/17/2025 12:49:44 - INFO - training.trainer_base - best_eval_accuracy = 0.7345565749235474
+06/17/2025 12:49:44 - INFO - training.trainer_base - epoch = 32.0
+OrderedDict([('best_epoch', 32), ('best_eval_accuracy', 0.7345565749235474), ('epoch', 33.0)])
+{'loss': 0.2749, 'learning_rate': 0.003305084745762712, 'epoch': 33.9}
+06/17/2025 12:51:54 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.7293352484703064, 'eval_accuracy': 0.7302752293577982, 'eval_runtime': 21.6101, 'eval_samples_per_second': 151.318, 'eval_steps_per_second': 18.926, 'epoch': 34.0}
+06/17/2025 12:51:54 - INFO - training.trainer_base - ***** Epoch 33: Best results *****
+06/17/2025 12:51:54 - INFO - training.trainer_base - best_epoch = 32
+06/17/2025 12:51:54 - INFO - training.trainer_base - best_eval_accuracy = 0.7345565749235474
+06/17/2025 12:51:54 - INFO - training.trainer_base - epoch = 33.0
+OrderedDict([('best_epoch', 32), ('best_eval_accuracy', 0.7345565749235474), ('epoch', 34.0)])
+06/17/2025 12:54:03 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.8487767577171326, 'eval_accuracy': 0.7134556574923547, 'eval_runtime': 21.6003, 'eval_samples_per_second': 151.387, 'eval_steps_per_second': 18.935, 'epoch': 35.0}
+06/17/2025 12:54:03 - INFO - training.trainer_base - ***** Epoch 34: Best results *****
+06/17/2025 12:54:03 - INFO - training.trainer_base - best_epoch = 32
+06/17/2025 12:54:03 - INFO - training.trainer_base - best_eval_accuracy = 0.7345565749235474
+06/17/2025 12:54:03 - INFO - training.trainer_base - epoch = 34.0
+OrderedDict([('best_epoch', 32), ('best_eval_accuracy', 0.7345565749235474), ('epoch', 35.0)])
+{'loss': 0.2513, 'learning_rate': 0.0032203389830508474, 'epoch': 35.59}
+06/17/2025 12:56:13 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.8025920987129211, 'eval_accuracy': 0.7217125382262997, 'eval_runtime': 21.5996, 'eval_samples_per_second': 151.392, 'eval_steps_per_second': 18.936, 'epoch': 36.0}
+06/17/2025 12:56:13 - INFO - training.trainer_base - ***** Epoch 35: Best results *****
+06/17/2025 12:56:13 - INFO - training.trainer_base - best_epoch = 32
+06/17/2025 12:56:13 - INFO - training.trainer_base - best_eval_accuracy = 0.7345565749235474
+06/17/2025 12:56:13 - INFO - training.trainer_base - epoch = 35.0
+OrderedDict([('best_epoch', 32), ('best_eval_accuracy', 0.7345565749235474), ('epoch', 36.0)])
+06/17/2025 12:58:23 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.7875521183013916, 'eval_accuracy': 0.7211009174311926, 'eval_runtime': 21.6, 'eval_samples_per_second': 151.389, 'eval_steps_per_second': 18.935, 'epoch': 37.0}
+06/17/2025 12:58:23 - INFO - training.trainer_base - ***** Epoch 36: Best results *****
+06/17/2025 12:58:23 - INFO - training.trainer_base - best_epoch = 32
+06/17/2025 12:58:23 - INFO - training.trainer_base - best_eval_accuracy = 0.7345565749235474
+06/17/2025 12:58:23 - INFO - training.trainer_base - epoch = 36.0
+OrderedDict([('best_epoch', 32), ('best_eval_accuracy', 0.7345565749235474), ('epoch', 37.0)])
+{'loss': 0.235, 'learning_rate': 0.003135593220338983, 'epoch': 37.29}
+06/17/2025 13:00:33 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.83793705701828, 'eval_accuracy': 0.7198776758409786, 'eval_runtime': 21.5975, 'eval_samples_per_second': 151.406, 'eval_steps_per_second': 18.937, 'epoch': 38.0}
+06/17/2025 13:00:33 - INFO - training.trainer_base - ***** Epoch 37: Best results *****
+06/17/2025 13:00:33 - INFO - training.trainer_base - best_epoch = 32
+06/17/2025 13:00:33 - INFO - training.trainer_base - best_eval_accuracy = 0.7345565749235474
+06/17/2025 13:00:33 - INFO - training.trainer_base - epoch = 37.0
+OrderedDict([('best_epoch', 32), ('best_eval_accuracy', 0.7345565749235474), ('epoch', 38.0)])
+{'loss': 0.22, 'learning_rate': 0.003050847457627119, 'epoch': 38.98}
+06/17/2025 13:02:42 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.8568254709243774, 'eval_accuracy': 0.736085626911315, 'eval_runtime': 21.601, 'eval_samples_per_second': 151.382, 'eval_steps_per_second': 18.934, 'epoch': 39.0}
+06/17/2025 13:02:42 - INFO - training.trainer_base - ***** Epoch 38: Best results *****
+06/17/2025 13:02:42 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:02:42 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:02:42 - INFO - training.trainer_base - epoch = 38.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 39.0)])
+06/17/2025 13:04:52 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.9378283023834229, 'eval_accuracy': 0.7128440366972477, 'eval_runtime': 21.6016, 'eval_samples_per_second': 151.378, 'eval_steps_per_second': 18.934, 'epoch': 40.0}
+06/17/2025 13:04:52 - INFO - training.trainer_base - ***** Epoch 39: Best results *****
+06/17/2025 13:04:52 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:04:52 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:04:52 - INFO - training.trainer_base - epoch = 39.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 40.0)])
+{'loss': 0.2066, 'learning_rate': 0.0029661016949152543, 'epoch': 40.68}
+06/17/2025 13:07:02 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.9659451246261597, 'eval_accuracy': 0.7134556574923547, 'eval_runtime': 21.6101, 'eval_samples_per_second': 151.318, 'eval_steps_per_second': 18.926, 'epoch': 41.0}
+06/17/2025 13:07:02 - INFO - training.trainer_base - ***** Epoch 40: Best results *****
+06/17/2025 13:07:02 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:07:02 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:07:02 - INFO - training.trainer_base - epoch = 40.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 41.0)])
+06/17/2025 13:09:12 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.8491203188896179, 'eval_accuracy': 0.7311926605504587, 'eval_runtime': 21.6258, 'eval_samples_per_second': 151.209, 'eval_steps_per_second': 18.913, 'epoch': 42.0}
+06/17/2025 13:09:12 - INFO - training.trainer_base - ***** Epoch 41: Best results *****
+06/17/2025 13:09:12 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:09:12 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:09:12 - INFO - training.trainer_base - epoch = 41.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 42.0)])
+{'loss': 0.1946, 'learning_rate': 0.00288135593220339, 'epoch': 42.37}
+06/17/2025 13:11:21 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.9654718637466431, 'eval_accuracy': 0.7318042813455657, 'eval_runtime': 21.604, 'eval_samples_per_second': 151.361, 'eval_steps_per_second': 18.932, 'epoch': 43.0}
+06/17/2025 13:11:21 - INFO - training.trainer_base - ***** Epoch 42: Best results *****
+06/17/2025 13:11:21 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:11:21 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:11:21 - INFO - training.trainer_base - epoch = 42.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 43.0)])
+06/17/2025 13:13:31 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.0339730978012085, 'eval_accuracy': 0.7162079510703364, 'eval_runtime': 21.6042, 'eval_samples_per_second': 151.359, 'eval_steps_per_second': 18.931, 'epoch': 44.0}
+06/17/2025 13:13:31 - INFO - training.trainer_base - ***** Epoch 43: Best results *****
+06/17/2025 13:13:31 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:13:31 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:13:31 - INFO - training.trainer_base - epoch = 43.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 44.0)])
+{'loss': 0.1828, 'learning_rate': 0.002796610169491525, 'epoch': 44.07}
+06/17/2025 13:15:41 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.0866835117340088, 'eval_accuracy': 0.7186544342507645, 'eval_runtime': 21.6034, 'eval_samples_per_second': 151.365, 'eval_steps_per_second': 18.932, 'epoch': 45.0}
+06/17/2025 13:15:41 - INFO - training.trainer_base - ***** Epoch 44: Best results *****
+06/17/2025 13:15:41 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:15:41 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:15:41 - INFO - training.trainer_base - epoch = 44.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 45.0)])
+{'loss': 0.1568, 'learning_rate': 0.002711864406779661, 'epoch': 45.76}
+06/17/2025 13:17:51 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.0444728136062622, 'eval_accuracy': 0.7244648318042813, 'eval_runtime': 21.6074, 'eval_samples_per_second': 151.337, 'eval_steps_per_second': 18.929, 'epoch': 46.0}
+06/17/2025 13:17:51 - INFO - training.trainer_base - ***** Epoch 45: Best results *****
+06/17/2025 13:17:51 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:17:51 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:17:51 - INFO - training.trainer_base - epoch = 45.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 46.0)])
+06/17/2025 13:20:00 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.1605228185653687, 'eval_accuracy': 0.7122324159021407, 'eval_runtime': 21.604, 'eval_samples_per_second': 151.361, 'eval_steps_per_second': 18.932, 'epoch': 47.0}
+06/17/2025 13:20:00 - INFO - training.trainer_base - ***** Epoch 46: Best results *****
+06/17/2025 13:20:00 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:20:00 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:20:00 - INFO - training.trainer_base - epoch = 46.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 47.0)])
+{'loss': 0.1618, 'learning_rate': 0.002627118644067797, 'epoch': 47.46}
+06/17/2025 13:22:10 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.1142507791519165, 'eval_accuracy': 0.7217125382262997, 'eval_runtime': 21.6149, 'eval_samples_per_second': 151.284, 'eval_steps_per_second': 18.922, 'epoch': 48.0}
+06/17/2025 13:22:10 - INFO - training.trainer_base - ***** Epoch 47: Best results *****
+06/17/2025 13:22:10 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:22:10 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:22:10 - INFO - training.trainer_base - epoch = 47.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 48.0)])
+06/17/2025 13:24:20 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.109108805656433, 'eval_accuracy': 0.7097859327217125, 'eval_runtime': 21.6097, 'eval_samples_per_second': 151.321, 'eval_steps_per_second': 18.927, 'epoch': 49.0}
+06/17/2025 13:24:20 - INFO - training.trainer_base - ***** Epoch 48: Best results *****
+06/17/2025 13:24:20 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:24:20 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:24:20 - INFO - training.trainer_base - epoch = 48.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 49.0)])
+{'loss': 0.1508, 'learning_rate': 0.002542372881355932, 'epoch': 49.15}
+06/17/2025 13:26:30 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.0465878248214722, 'eval_accuracy': 0.718348623853211, 'eval_runtime': 21.6255, 'eval_samples_per_second': 151.21, 'eval_steps_per_second': 18.913, 'epoch': 50.0}
+06/17/2025 13:26:30 - INFO - training.trainer_base - ***** Epoch 49: Best results *****
+06/17/2025 13:26:30 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:26:30 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:26:30 - INFO - training.trainer_base - epoch = 49.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 50.0)])
+{'loss': 0.1375, 'learning_rate': 0.002457627118644068, 'epoch': 50.85}
+06/17/2025 13:28:39 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 0.9760186672210693, 'eval_accuracy': 0.7204892966360856, 'eval_runtime': 21.6121, 'eval_samples_per_second': 151.304, 'eval_steps_per_second': 18.925, 'epoch': 51.0}
+06/17/2025 13:28:39 - INFO - training.trainer_base - ***** Epoch 50: Best results *****
+06/17/2025 13:28:39 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:28:39 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:28:39 - INFO - training.trainer_base - epoch = 50.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 51.0)])
+06/17/2025 13:30:49 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.1978102922439575, 'eval_accuracy': 0.7045871559633028, 'eval_runtime': 21.5858, 'eval_samples_per_second': 151.489, 'eval_steps_per_second': 18.948, 'epoch': 52.0}
+06/17/2025 13:30:49 - INFO - training.trainer_base - ***** Epoch 51: Best results *****
+06/17/2025 13:30:49 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:30:49 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:30:49 - INFO - training.trainer_base - epoch = 51.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 52.0)])
+{'loss': 0.1267, 'learning_rate': 0.0023728813559322037, 'epoch': 52.54}
+06/17/2025 13:32:59 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.2180614471435547, 'eval_accuracy': 0.7259938837920489, 'eval_runtime': 21.602, 'eval_samples_per_second': 151.375, 'eval_steps_per_second': 18.933, 'epoch': 53.0}
+06/17/2025 13:32:59 - INFO - training.trainer_base - ***** Epoch 52: Best results *****
+06/17/2025 13:32:59 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:32:59 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:32:59 - INFO - training.trainer_base - epoch = 52.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 53.0)])
+06/17/2025 13:35:09 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.2386707067489624, 'eval_accuracy': 0.7327217125382263, 'eval_runtime': 21.6063, 'eval_samples_per_second': 151.345, 'eval_steps_per_second': 18.93, 'epoch': 54.0}
+06/17/2025 13:35:09 - INFO - training.trainer_base - ***** Epoch 53: Best results *****
+06/17/2025 13:35:09 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:35:09 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:35:09 - INFO - training.trainer_base - epoch = 53.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 54.0)])
+{'loss': 0.1171, 'learning_rate': 0.002288135593220339, 'epoch': 54.24}
+06/17/2025 13:37:18 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.0969501733779907, 'eval_accuracy': 0.7238532110091743, 'eval_runtime': 21.6086, 'eval_samples_per_second': 151.328, 'eval_steps_per_second': 18.928, 'epoch': 55.0}
+06/17/2025 13:37:18 - INFO - training.trainer_base - ***** Epoch 54: Best results *****
+06/17/2025 13:37:18 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:37:18 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:37:18 - INFO - training.trainer_base - epoch = 54.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 55.0)])
+{'loss': 0.1187, 'learning_rate': 0.0022033898305084745, 'epoch': 55.93}
+06/17/2025 13:39:28 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.1915737390518188, 'eval_accuracy': 0.7131498470948012, 'eval_runtime': 21.5973, 'eval_samples_per_second': 151.408, 'eval_steps_per_second': 18.938, 'epoch': 56.0}
+06/17/2025 13:39:28 - INFO - training.trainer_base - ***** Epoch 55: Best results *****
+06/17/2025 13:39:28 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:39:28 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:39:28 - INFO - training.trainer_base - epoch = 55.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 56.0)])
+06/17/2025 13:41:38 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.1541703939437866, 'eval_accuracy': 0.7192660550458716, 'eval_runtime': 21.597, 'eval_samples_per_second': 151.41, 'eval_steps_per_second': 18.938, 'epoch': 57.0}
+06/17/2025 13:41:38 - INFO - training.trainer_base - ***** Epoch 56: Best results *****
+06/17/2025 13:41:38 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:41:38 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:41:38 - INFO - training.trainer_base - epoch = 56.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 57.0)])
+{'loss': 0.1059, 'learning_rate': 0.00211864406779661, 'epoch': 57.63}
+06/17/2025 13:43:48 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.11918044090271, 'eval_accuracy': 0.7275229357798165, 'eval_runtime': 21.6018, 'eval_samples_per_second': 151.376, 'eval_steps_per_second': 18.934, 'epoch': 58.0}
+06/17/2025 13:43:48 - INFO - training.trainer_base - ***** Epoch 57: Best results *****
+06/17/2025 13:43:48 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:43:48 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:43:48 - INFO - training.trainer_base - epoch = 57.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 58.0)])
+06/17/2025 13:45:57 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.2250791788101196, 'eval_accuracy': 0.7275229357798165, 'eval_runtime': 21.6024, 'eval_samples_per_second': 151.372, 'eval_steps_per_second': 18.933, 'epoch': 59.0}
+06/17/2025 13:45:57 - INFO - training.trainer_base - ***** Epoch 58: Best results *****
+06/17/2025 13:45:57 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:45:57 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:45:57 - INFO - training.trainer_base - epoch = 58.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 59.0)])
+{'loss': 0.1047, 'learning_rate': 0.002033898305084746, 'epoch': 59.32}
+06/17/2025 13:48:07 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.2212847471237183, 'eval_accuracy': 0.7235474006116208, 'eval_runtime': 21.6184, 'eval_samples_per_second': 151.26, 'eval_steps_per_second': 18.919, 'epoch': 60.0}
+06/17/2025 13:48:07 - INFO - training.trainer_base - ***** Epoch 59: Best results *****
+06/17/2025 13:48:07 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:48:07 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:48:07 - INFO - training.trainer_base - epoch = 59.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 60.0)])
+06/17/2025 13:50:17 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.2117998600006104, 'eval_accuracy': 0.7244648318042813, 'eval_runtime': 21.6103, 'eval_samples_per_second': 151.317, 'eval_steps_per_second': 18.926, 'epoch': 61.0}
+06/17/2025 13:50:17 - INFO - training.trainer_base - ***** Epoch 60: Best results *****
+06/17/2025 13:50:17 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:50:17 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:50:17 - INFO - training.trainer_base - epoch = 60.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 61.0)])
+{'loss': 0.0893, 'learning_rate': 0.0019491525423728814, 'epoch': 61.02}
+06/17/2025 13:52:26 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.3144047260284424, 'eval_accuracy': 0.7162079510703364, 'eval_runtime': 21.5921, 'eval_samples_per_second': 151.444, 'eval_steps_per_second': 18.942, 'epoch': 62.0}
+06/17/2025 13:52:26 - INFO - training.trainer_base - ***** Epoch 61: Best results *****
+06/17/2025 13:52:26 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:52:26 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:52:26 - INFO - training.trainer_base - epoch = 61.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 62.0)])
+{'loss': 0.0847, 'learning_rate': 0.001864406779661017, 'epoch': 62.71}
+06/17/2025 13:54:36 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.2311034202575684, 'eval_accuracy': 0.7238532110091743, 'eval_runtime': 21.506, 'eval_samples_per_second': 152.051, 'eval_steps_per_second': 19.018, 'epoch': 63.0}
+06/17/2025 13:54:36 - INFO - training.trainer_base - ***** Epoch 62: Best results *****
+06/17/2025 13:54:36 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:54:36 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:54:36 - INFO - training.trainer_base - epoch = 62.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 63.0)])
+06/17/2025 13:56:46 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.165427565574646, 'eval_accuracy': 0.7314984709480122, 'eval_runtime': 21.5509, 'eval_samples_per_second': 151.734, 'eval_steps_per_second': 18.978, 'epoch': 64.0}
+06/17/2025 13:56:46 - INFO - training.trainer_base - ***** Epoch 63: Best results *****
+06/17/2025 13:56:46 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:56:46 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:56:46 - INFO - training.trainer_base - epoch = 63.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 64.0)])
+{'loss': 0.0861, 'learning_rate': 0.0017796610169491525, 'epoch': 64.41}
+06/17/2025 13:58:56 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.20101797580719, 'eval_accuracy': 0.72782874617737, 'eval_runtime': 22.7989, 'eval_samples_per_second': 143.428, 'eval_steps_per_second': 17.939, 'epoch': 65.0}
+06/17/2025 13:58:56 - INFO - training.trainer_base - ***** Epoch 64: Best results *****
+06/17/2025 13:58:56 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 13:58:56 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 13:58:56 - INFO - training.trainer_base - epoch = 64.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 65.0)])
+06/17/2025 14:01:14 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.2694110870361328, 'eval_accuracy': 0.7262996941896025, 'eval_runtime': 25.2097, 'eval_samples_per_second': 129.712, 'eval_steps_per_second': 16.224, 'epoch': 66.0}
+06/17/2025 14:01:14 - INFO - training.trainer_base - ***** Epoch 65: Best results *****
+06/17/2025 14:01:14 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 14:01:14 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 14:01:14 - INFO - training.trainer_base - epoch = 65.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 66.0)])
+{'loss': 0.0842, 'learning_rate': 0.001694915254237288, 'epoch': 66.1}
+06/17/2025 14:03:25 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.3018312454223633, 'eval_accuracy': 0.736085626911315, 'eval_runtime': 21.5482, 'eval_samples_per_second': 151.753, 'eval_steps_per_second': 18.981, 'epoch': 67.0}
+06/17/2025 14:03:25 - INFO - training.trainer_base - ***** Epoch 66: Best results *****
+06/17/2025 14:03:25 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 14:03:25 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 14:03:25 - INFO - training.trainer_base - epoch = 66.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 67.0)])
+{'loss': 0.073, 'learning_rate': 0.0016101694915254237, 'epoch': 67.8}
+06/17/2025 14:05:34 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4421201944351196, 'eval_accuracy': 0.7180428134556575, 'eval_runtime': 21.5484, 'eval_samples_per_second': 151.751, 'eval_steps_per_second': 18.981, 'epoch': 68.0}
+06/17/2025 14:05:34 - INFO - training.trainer_base - ***** Epoch 67: Best results *****
+06/17/2025 14:05:34 - INFO - training.trainer_base - best_epoch = 38
+06/17/2025 14:05:34 - INFO - training.trainer_base - best_eval_accuracy = 0.736085626911315
+06/17/2025 14:05:34 - INFO - training.trainer_base - epoch = 67.0
+OrderedDict([('best_epoch', 38), ('best_eval_accuracy', 0.736085626911315), ('epoch', 68.0)])
+06/17/2025 14:07:44 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4084217548370361, 'eval_accuracy': 0.7373088685015291, 'eval_runtime': 21.5447, 'eval_samples_per_second': 151.777, 'eval_steps_per_second': 18.984, 'epoch': 69.0}
+06/17/2025 14:07:44 - INFO - training.trainer_base - ***** Epoch 68: Best results *****
+06/17/2025 14:07:44 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:07:44 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:07:44 - INFO - training.trainer_base - epoch = 68.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 69.0)])
+{'loss': 0.0693, 'learning_rate': 0.0015254237288135596, 'epoch': 69.49}
+06/17/2025 14:09:53 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.3678152561187744, 'eval_accuracy': 0.7217125382262997, 'eval_runtime': 21.5544, 'eval_samples_per_second': 151.709, 'eval_steps_per_second': 18.975, 'epoch': 70.0}
+06/17/2025 14:09:53 - INFO - training.trainer_base - ***** Epoch 69: Best results *****
+06/17/2025 14:09:53 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:09:53 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:09:53 - INFO - training.trainer_base - epoch = 69.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 70.0)])
+06/17/2025 14:12:03 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4101030826568604, 'eval_accuracy': 0.7217125382262997, 'eval_runtime': 21.5491, 'eval_samples_per_second': 151.747, 'eval_steps_per_second': 18.98, 'epoch': 71.0}
+06/17/2025 14:12:03 - INFO - training.trainer_base - ***** Epoch 70: Best results *****
+06/17/2025 14:12:03 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:12:03 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:12:03 - INFO - training.trainer_base - epoch = 70.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 71.0)])
+{'loss': 0.0705, 'learning_rate': 0.001440677966101695, 'epoch': 71.19}
+06/17/2025 14:14:13 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4842020273208618, 'eval_accuracy': 0.7238532110091743, 'eval_runtime': 21.5602, 'eval_samples_per_second': 151.669, 'eval_steps_per_second': 18.97, 'epoch': 72.0}
+06/17/2025 14:14:13 - INFO - training.trainer_base - ***** Epoch 71: Best results *****
+06/17/2025 14:14:13 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:14:13 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:14:13 - INFO - training.trainer_base - epoch = 71.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 72.0)])
+{'loss': 0.0649, 'learning_rate': 0.0013559322033898306, 'epoch': 72.88}
+06/17/2025 14:16:22 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.544935941696167, 'eval_accuracy': 0.7149847094801223, 'eval_runtime': 21.5602, 'eval_samples_per_second': 151.668, 'eval_steps_per_second': 18.97, 'epoch': 73.0}
+06/17/2025 14:16:22 - INFO - training.trainer_base - ***** Epoch 72: Best results *****
+06/17/2025 14:16:22 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:16:22 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:16:22 - INFO - training.trainer_base - epoch = 72.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 73.0)])
+06/17/2025 14:18:32 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.2774219512939453, 'eval_accuracy': 0.7348623853211009, 'eval_runtime': 21.5435, 'eval_samples_per_second': 151.786, 'eval_steps_per_second': 18.985, 'epoch': 74.0}
+06/17/2025 14:18:32 - INFO - training.trainer_base - ***** Epoch 73: Best results *****
+06/17/2025 14:18:32 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:18:32 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:18:32 - INFO - training.trainer_base - epoch = 73.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 74.0)])
+{'loss': 0.0665, 'learning_rate': 0.001271186440677966, 'epoch': 74.58}
+06/17/2025 14:20:42 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4148833751678467, 'eval_accuracy': 0.7324159021406728, 'eval_runtime': 21.6407, 'eval_samples_per_second': 151.104, 'eval_steps_per_second': 18.9, 'epoch': 75.0}
+06/17/2025 14:20:42 - INFO - training.trainer_base - ***** Epoch 74: Best results *****
+06/17/2025 14:20:42 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:20:42 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:20:42 - INFO - training.trainer_base - epoch = 74.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 75.0)])
+06/17/2025 14:22:51 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.3674074411392212, 'eval_accuracy': 0.7259938837920489, 'eval_runtime': 21.562, 'eval_samples_per_second': 151.655, 'eval_steps_per_second': 18.969, 'epoch': 76.0}
+06/17/2025 14:22:51 - INFO - training.trainer_base - ***** Epoch 75: Best results *****
+06/17/2025 14:22:51 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:22:51 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:22:51 - INFO - training.trainer_base - epoch = 75.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 76.0)])
+{'loss': 0.0634, 'learning_rate': 0.0011864406779661019, 'epoch': 76.27}
+06/17/2025 14:25:01 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5222208499908447, 'eval_accuracy': 0.7287461773700306, 'eval_runtime': 21.5103, 'eval_samples_per_second': 152.02, 'eval_steps_per_second': 19.014, 'epoch': 77.0}
+06/17/2025 14:25:01 - INFO - training.trainer_base - ***** Epoch 76: Best results *****
+06/17/2025 14:25:01 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:25:01 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:25:01 - INFO - training.trainer_base - epoch = 76.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 77.0)])
+{'loss': 0.0598, 'learning_rate': 0.0011016949152542373, 'epoch': 77.97}
+06/17/2025 14:27:10 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4132881164550781, 'eval_accuracy': 0.7281345565749235, 'eval_runtime': 21.5711, 'eval_samples_per_second': 151.592, 'eval_steps_per_second': 18.961, 'epoch': 78.0}
+06/17/2025 14:27:10 - INFO - training.trainer_base - ***** Epoch 77: Best results *****
+06/17/2025 14:27:10 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:27:10 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:27:10 - INFO - training.trainer_base - epoch = 77.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 78.0)])
+06/17/2025 14:29:20 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.3355650901794434, 'eval_accuracy': 0.728440366972477, 'eval_runtime': 21.5574, 'eval_samples_per_second': 151.688, 'eval_steps_per_second': 18.973, 'epoch': 79.0}
+06/17/2025 14:29:20 - INFO - training.trainer_base - ***** Epoch 78: Best results *****
+06/17/2025 14:29:20 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:29:20 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:29:20 - INFO - training.trainer_base - epoch = 78.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 79.0)])
+{'loss': 0.0591, 'learning_rate': 0.001016949152542373, 'epoch': 79.66}
+06/17/2025 14:31:30 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4644622802734375, 'eval_accuracy': 0.7174311926605504, 'eval_runtime': 21.5666, 'eval_samples_per_second': 151.623, 'eval_steps_per_second': 18.964, 'epoch': 80.0}
+06/17/2025 14:31:30 - INFO - training.trainer_base - ***** Epoch 79: Best results *****
+06/17/2025 14:31:30 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:31:30 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:31:30 - INFO - training.trainer_base - epoch = 79.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 80.0)])
+06/17/2025 14:33:39 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5426154136657715, 'eval_accuracy': 0.7269113149847095, 'eval_runtime': 21.5614, 'eval_samples_per_second': 151.66, 'eval_steps_per_second': 18.969, 'epoch': 81.0}
+06/17/2025 14:33:39 - INFO - training.trainer_base - ***** Epoch 80: Best results *****
+06/17/2025 14:33:39 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:33:39 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:33:39 - INFO - training.trainer_base - epoch = 80.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 81.0)])
+{'loss': 0.0515, 'learning_rate': 0.0009322033898305085, 'epoch': 81.36}
+06/17/2025 14:35:49 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4777946472167969, 'eval_accuracy': 0.7318042813455657, 'eval_runtime': 21.5481, 'eval_samples_per_second': 151.753, 'eval_steps_per_second': 18.981, 'epoch': 82.0}
+06/17/2025 14:35:49 - INFO - training.trainer_base - ***** Epoch 81: Best results *****
+06/17/2025 14:35:49 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:35:49 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:35:49 - INFO - training.trainer_base - epoch = 81.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 82.0)])
+06/17/2025 14:37:58 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5020850896835327, 'eval_accuracy': 0.7207951070336391, 'eval_runtime': 21.5713, 'eval_samples_per_second': 151.59, 'eval_steps_per_second': 18.96, 'epoch': 83.0}
+06/17/2025 14:37:58 - INFO - training.trainer_base - ***** Epoch 82: Best results *****
+06/17/2025 14:37:58 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:37:58 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:37:58 - INFO - training.trainer_base - epoch = 82.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 83.0)])
+{'loss': 0.0522, 'learning_rate': 0.000847457627118644, 'epoch': 83.05}
+06/17/2025 14:40:08 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4750970602035522, 'eval_accuracy': 0.7314984709480122, 'eval_runtime': 21.5611, 'eval_samples_per_second': 151.662, 'eval_steps_per_second': 18.969, 'epoch': 84.0}
+06/17/2025 14:40:08 - INFO - training.trainer_base - ***** Epoch 83: Best results *****
+06/17/2025 14:40:08 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:40:08 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:40:08 - INFO - training.trainer_base - epoch = 83.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 84.0)])
+{'loss': 0.0469, 'learning_rate': 0.0007627118644067798, 'epoch': 84.75}
+06/17/2025 14:42:18 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4902408123016357, 'eval_accuracy': 0.7275229357798165, 'eval_runtime': 21.6221, 'eval_samples_per_second': 151.234, 'eval_steps_per_second': 18.916, 'epoch': 85.0}
+06/17/2025 14:42:18 - INFO - training.trainer_base - ***** Epoch 84: Best results *****
+06/17/2025 14:42:18 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:42:18 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:42:18 - INFO - training.trainer_base - epoch = 84.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 85.0)])
+06/17/2025 14:44:27 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.383158802986145, 'eval_accuracy': 0.7241590214067278, 'eval_runtime': 21.5605, 'eval_samples_per_second': 151.666, 'eval_steps_per_second': 18.97, 'epoch': 86.0}
+06/17/2025 14:44:27 - INFO - training.trainer_base - ***** Epoch 85: Best results *****
+06/17/2025 14:44:27 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:44:27 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:44:27 - INFO - training.trainer_base - epoch = 85.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 86.0)])
+{'loss': 0.0472, 'learning_rate': 0.0006779661016949153, 'epoch': 86.44}
+06/17/2025 14:46:37 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.53439199924469, 'eval_accuracy': 0.7229357798165138, 'eval_runtime': 21.5614, 'eval_samples_per_second': 151.66, 'eval_steps_per_second': 18.969, 'epoch': 87.0}
+06/17/2025 14:46:37 - INFO - training.trainer_base - ***** Epoch 86: Best results *****
+06/17/2025 14:46:37 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:46:37 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:46:37 - INFO - training.trainer_base - epoch = 86.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 87.0)])
+06/17/2025 14:48:47 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5836186408996582, 'eval_accuracy': 0.7253822629969419, 'eval_runtime': 21.5676, 'eval_samples_per_second': 151.616, 'eval_steps_per_second': 18.964, 'epoch': 88.0}
+06/17/2025 14:48:47 - INFO - training.trainer_base - ***** Epoch 87: Best results *****
+06/17/2025 14:48:47 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:48:47 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:48:47 - INFO - training.trainer_base - epoch = 87.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 88.0)])
+{'loss': 0.045, 'learning_rate': 0.0005932203389830509, 'epoch': 88.14}
+06/17/2025 14:50:56 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5061484575271606, 'eval_accuracy': 0.7293577981651376, 'eval_runtime': 21.5683, 'eval_samples_per_second': 151.612, 'eval_steps_per_second': 18.963, 'epoch': 89.0}
+06/17/2025 14:50:56 - INFO - training.trainer_base - ***** Epoch 88: Best results *****
+06/17/2025 14:50:56 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:50:56 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:50:56 - INFO - training.trainer_base - epoch = 88.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 89.0)])
+{'loss': 0.0468, 'learning_rate': 0.0005084745762711864, 'epoch': 89.83}
+06/17/2025 14:53:06 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5237536430358887, 'eval_accuracy': 0.7226299694189603, 'eval_runtime': 21.5455, 'eval_samples_per_second': 151.772, 'eval_steps_per_second': 18.983, 'epoch': 90.0}
+06/17/2025 14:53:06 - INFO - training.trainer_base - ***** Epoch 89: Best results *****
+06/17/2025 14:53:06 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:53:06 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:53:06 - INFO - training.trainer_base - epoch = 89.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 90.0)])
+06/17/2025 14:55:15 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4619807004928589, 'eval_accuracy': 0.7321100917431193, 'eval_runtime': 21.5465, 'eval_samples_per_second': 151.765, 'eval_steps_per_second': 18.982, 'epoch': 91.0}
+06/17/2025 14:55:15 - INFO - training.trainer_base - ***** Epoch 90: Best results *****
+06/17/2025 14:55:15 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:55:15 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:55:15 - INFO - training.trainer_base - epoch = 90.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 91.0)])
+{'loss': 0.0422, 'learning_rate': 0.000423728813559322, 'epoch': 91.53}
+06/17/2025 14:57:25 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.4951012134552002, 'eval_accuracy': 0.7232415902140673, 'eval_runtime': 21.557, 'eval_samples_per_second': 151.691, 'eval_steps_per_second': 18.973, 'epoch': 92.0}
+06/17/2025 14:57:25 - INFO - training.trainer_base - ***** Epoch 91: Best results *****
+06/17/2025 14:57:25 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:57:25 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:57:25 - INFO - training.trainer_base - epoch = 91.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 92.0)])
+06/17/2025 14:59:35 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5003087520599365, 'eval_accuracy': 0.7299694189602447, 'eval_runtime': 21.57, 'eval_samples_per_second': 151.599, 'eval_steps_per_second': 18.961, 'epoch': 93.0}
+06/17/2025 14:59:35 - INFO - training.trainer_base - ***** Epoch 92: Best results *****
+06/17/2025 14:59:35 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 14:59:35 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 14:59:35 - INFO - training.trainer_base - epoch = 92.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 93.0)])
+{'loss': 0.0411, 'learning_rate': 0.00033898305084745765, 'epoch': 93.22}
+06/17/2025 15:01:44 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5581852197647095, 'eval_accuracy': 0.7259938837920489, 'eval_runtime': 21.4053, 'eval_samples_per_second': 152.766, 'eval_steps_per_second': 19.107, 'epoch': 94.0}
+06/17/2025 15:01:44 - INFO - training.trainer_base - ***** Epoch 93: Best results *****
+06/17/2025 15:01:44 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 15:01:44 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 15:01:44 - INFO - training.trainer_base - epoch = 93.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 94.0)])
+{'loss': 0.0384, 'learning_rate': 0.0002542372881355932, 'epoch': 94.92}
+06/17/2025 15:03:54 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5552176237106323, 'eval_accuracy': 0.7296636085626911, 'eval_runtime': 21.5551, 'eval_samples_per_second': 151.704, 'eval_steps_per_second': 18.975, 'epoch': 95.0}
+06/17/2025 15:03:54 - INFO - training.trainer_base - ***** Epoch 94: Best results *****
+06/17/2025 15:03:54 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 15:03:54 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 15:03:54 - INFO - training.trainer_base - epoch = 94.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 95.0)])
+06/17/2025 15:06:03 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5813473463058472, 'eval_accuracy': 0.7229357798165138, 'eval_runtime': 21.539, 'eval_samples_per_second': 151.817, 'eval_steps_per_second': 18.989, 'epoch': 96.0}
+06/17/2025 15:06:03 - INFO - training.trainer_base - ***** Epoch 95: Best results *****
+06/17/2025 15:06:03 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 15:06:03 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 15:06:03 - INFO - training.trainer_base - epoch = 95.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 96.0)])
+{'loss': 0.0403, 'learning_rate': 0.00016949152542372882, 'epoch': 96.61}
+06/17/2025 15:08:13 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.561945915222168, 'eval_accuracy': 0.7241590214067278, 'eval_runtime': 21.5742, 'eval_samples_per_second': 151.57, 'eval_steps_per_second': 18.958, 'epoch': 97.0}
+06/17/2025 15:08:13 - INFO - training.trainer_base - ***** Epoch 96: Best results *****
+06/17/2025 15:08:13 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 15:08:13 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 15:08:13 - INFO - training.trainer_base - epoch = 96.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 97.0)])
+06/17/2025 15:10:22 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.557529330253601, 'eval_accuracy': 0.72782874617737, 'eval_runtime': 21.5624, 'eval_samples_per_second': 151.653, 'eval_steps_per_second': 18.968, 'epoch': 98.0}
+06/17/2025 15:10:22 - INFO - training.trainer_base - ***** Epoch 97: Best results *****
+06/17/2025 15:10:22 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 15:10:22 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 15:10:22 - INFO - training.trainer_base - epoch = 97.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 98.0)])
+{'loss': 0.0397, 'learning_rate': 8.474576271186441e-05, 'epoch': 98.31}
+06/17/2025 15:12:32 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.5625113248825073, 'eval_accuracy': 0.7256880733944954, 'eval_runtime': 21.5513, 'eval_samples_per_second': 151.731, 'eval_steps_per_second': 18.978, 'epoch': 99.0}
+06/17/2025 15:12:32 - INFO - training.trainer_base - ***** Epoch 98: Best results *****
+06/17/2025 15:12:32 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 15:12:32 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 15:12:32 - INFO - training.trainer_base - epoch = 98.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 99.0)])
+{'loss': 0.0346, 'learning_rate': 0.0, 'epoch': 100.0}
+06/17/2025 15:14:42 - INFO - datasets.metric - Removing /u/achen12/.cache/huggingface/metrics/super_glue/boolq/default_experiment-1-0.arrow
+{'eval_loss': 1.557669997215271, 'eval_accuracy': 0.726605504587156, 'eval_runtime': 21.5526, 'eval_samples_per_second': 151.722, 'eval_steps_per_second': 18.977, 'epoch': 100.0}
+06/17/2025 15:14:42 - INFO - training.trainer_base - ***** Epoch 99: Best results *****
+06/17/2025 15:14:42 - INFO - training.trainer_base - best_epoch = 68
+06/17/2025 15:14:42 - INFO - training.trainer_base - best_eval_accuracy = 0.7373088685015291
+06/17/2025 15:14:42 - INFO - training.trainer_base - epoch = 99.0
+OrderedDict([('best_epoch', 68), ('best_eval_accuracy', 0.7373088685015291), ('epoch', 100.0)])
+{'train_runtime': 13176.2101, 'train_samples_per_second': 71.546, 'train_steps_per_second': 2.239, 'train_loss': 0.2469862211841648, 'epoch': 100.0}
+***** train metrics *****
+  epoch                    =      100.0
+  train_loss               =      0.247
+  train_runtime            = 3:39:36.21
+  train_samples_per_second =     71.546
+  train_steps_per_second   =      2.239
+***** best metrics *****
+  best_epoch         =     68
+  best_eval_accuracy = 0.7373
+  epoch              =  100.0

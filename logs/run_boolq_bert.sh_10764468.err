@@ -1,0 +1,129 @@
+Using the `WAND_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+[INFO|configuration_utils.py:583] 2025-06-22 20:42:54,811 >> loading configuration file https://huggingface.co/bert-large-cased/resolve/main/config.json from cache at /u/achen12/.cache/huggingface/transformers/11ad22b0deaa199d15b331609ca5f60872a1a91473e9b40c115192dadb6d9a30.bdf0177a774dcff07681b2527b926c099e6563687c75a79f7469c7a7da7898c7
+[INFO|configuration_utils.py:620] 2025-06-22 20:42:54,811 >> Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:42:55,913 >> loading file https://huggingface.co/bert-large-cased/resolve/main/vocab.txt from cache at /u/achen12/.cache/huggingface/transformers/c9961ea5b7e8ad58701728c45f4d225f70b19aa59745121e5a96c8a44efca4c8.437aa611e89f6fc6675a049d2b5545390adbc617e7d655286421c191d2be2791
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:42:55,913 >> loading file https://huggingface.co/bert-large-cased/resolve/main/tokenizer.json from cache at /u/achen12/.cache/huggingface/transformers/75be22d7750034989358861e325977feda47740e1c3f8a4dc1cb73570aad843e.2b9a196704f2f183fe3f4b48d6e662dba8203fdcb3346bfa896831378edf6f97
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:42:55,913 >> loading file https://huggingface.co/bert-large-cased/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:42:55,913 >> loading file https://huggingface.co/bert-large-cased/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2025-06-22 20:42:55,913 >> loading file https://huggingface.co/bert-large-cased/resolve/main/tokenizer_config.json from cache at /u/achen12/.cache/huggingface/transformers/45d2aa048795efc7b12791662c188d5e3aa2f9ac54b2cf3f6e4d7bc6544e3d13.25d8d06fb0679146a3ed2a3463e3585380bff882fe6e1ebc497196e40dbbd7fa
+[INFO|configuration_utils.py:583] 2025-06-22 20:42:55,972 >> loading configuration file https://huggingface.co/bert-large-cased/resolve/main/config.json from cache at /u/achen12/.cache/huggingface/transformers/11ad22b0deaa199d15b331609ca5f60872a1a91473e9b40c115192dadb6d9a30.bdf0177a774dcff07681b2527b926c099e6563687c75a79f7469c7a7da7898c7
+[INFO|configuration_utils.py:620] 2025-06-22 20:42:55,972 >> Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 69.17it/s]
+[INFO|configuration_utils.py:583] 2025-06-22 20:42:56,998 >> loading configuration file https://huggingface.co/bert-large-cased/resolve/main/config.json from cache at /u/achen12/.cache/huggingface/transformers/11ad22b0deaa199d15b331609ca5f60872a1a91473e9b40c115192dadb6d9a30.bdf0177a774dcff07681b2527b926c099e6563687c75a79f7469c7a7da7898c7
+[INFO|configuration_utils.py:620] 2025-06-22 20:42:56,999 >> Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "directionality": "bidi",
+  "finetuning_task": "boolq",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 1024,
+  "id2label": {
+    "0": "False",
+    "1": "True"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "label2id": {
+    "False": 0,
+    "True": 1
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.3",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+[INFO|modeling_utils.py:1323] 2025-06-22 20:42:57,085 >> loading weights file https://huggingface.co/bert-large-cased/resolve/main/pytorch_model.bin from cache at /u/achen12/.cache/huggingface/transformers/cdd3fa79a58abc10a3331427b8b3d7a13ed15ea2dc5bf6dd67065b007d81f2fb.0749e4f07a7ad43190d183545a30a4899a63bd709586bcc3b30b0f09b025ab3a
+/u/achen12/miniconda3/envs/pt2/lib/python3.8/site-packages/transformers/modeling_utils.py:1331: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(resolved_archive_file, map_location="cpu")
+[WARNING|modeling_utils.py:1579] 2025-06-22 20:43:01,008 >> Some weights of the model checkpoint at bert-large-cased were not used when initializing BertPrefixForSequenceClassification: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertPrefixForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertPrefixForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:1590] 2025-06-22 20:43:01,008 >> Some weights of BertPrefixForSequenceClassification were not initialized from the model checkpoint at bert-large-cased and are newly initialized: ['prefix_encoder.embedding.weight', 'classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[INFO|trainer.py:540] 2025-06-22 20:43:01,421 >> The following columns in the training set  don't have a corresponding argument in `BertPrefixForSequenceClassification.forward` and have been ignored: question, passage, idx.
+[INFO|trainer.py:1196] 2025-06-22 20:43:02,395 >> ***** Running training *****
+[INFO|trainer.py:1197] 2025-06-22 20:43:02,395 >>   Num examples = 9427
+[INFO|trainer.py:1198] 2025-06-22 20:43:02,395 >>   Num Epochs = 100
+[INFO|trainer.py:1199] 2025-06-22 20:43:02,395 >>   Instantaneous batch size per device = 32
+[INFO|trainer.py:1200] 2025-06-22 20:43:02,395 >>   Total train batch size (w. parallel, distributed & accumulation) = 32
+[INFO|trainer.py:1201] 2025-06-22 20:43:02,395 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1202] 2025-06-22 20:43:02,395 >>   Total optimization steps = 29500
+  0%|          | 0/29500 [00:00<?, ?it/s]  0%|          | 1/29500 [00:01<9:56:07,  1.21s/it]  0%|          | 2/29500 [00:01<5:52:10,  1.40it/s]  0%|          | 3/29500 [00:01<4:33:26,  1.80it/s]  0%|          | 4/29500 [00:02<3:56:25,  2.08it/s]  0%|          | 5/29500 [00:02<3:35:59,  2.28it/s]  0%|          | 6/29500 [00:03<3:23:45,  2.41it/s]  0%|          | 7/29500 [00:03<3:15:59,  2.51it/s]  0%|          | 8/29500 [00:03<3:10:49,  2.58it/s]  0%|          | 9/29500 [00:04<3:07:29,  2.62it/s]  0%|          | 10/29500 [00:04<3:05:06,  2.66it/s]  0%|          | 11/29500 [00:04<3:03:27,  2.68it/s]  0%|          | 12/29500 [00:05<3:02:31,  2.69it/s]  0%|          | 13/29500 [00:05<3:01:46,  2.70it/s]  0%|          | 14/29500 [00:05<3:01:06,  2.71it/s]  0%|          | 15/29500 [00:06<3:00:41,  2.72it/s]  0%|          | 16/29500 [00:06<3:00:26,  2.72it/s]  0%|          | 17/29500 [00:07<3:00:19,  2.72it/s]  0%|          | 18/29500 [00:07<3:00:10,  2.73it/s]  0%|          | 19/29500 [00:07<3:00:01,  2.73it/s]  0%|          | 20/29500 [00:08<3:00:03,  2.73it/s]  0%|          | 21/29500 [00:08<2:59:57,  2.73it/s]  0%|          | 22/29500 [00:08<2:59:54,  2.73it/s]  0%|          | 23/29500 [00:09<2:59:48,  2.73it/s]  0%|          | 24/29500 [00:09<2:59:46,  2.73it/s]  0%|          | 25/29500 [00:09<2:59:44,  2.73it/s]  0%|          | 26/29500 [00:10<2:59:46,  2.73it/s]  0%|          | 27/29500 [00:10<2:59:50,  2.73it/s]  0%|          | 28/29500 [00:11<2:59:49,  2.73it/s]  0%|          | 29/29500 [00:11<2:59:43,  2.73it/s]  0%|          | 30/29500 [00:11<2:59:41,  2.73it/s]  0%|          | 31/29500 [00:12<2:59:40,  2.73it/s]  0%|          | 32/29500 [00:12<2:59:38,  2.73it/s]  0%|          | 33/29500 [00:12<2:59:37,  2.73it/s]  0%|          | 34/29500 [00:13<2:59:35,  2.73it/s]  0%|          | 35/29500 [00:13<2:59:34,  2.73it/s]  0%|          | 36/29500 [00:14<2:59:39,  2.73it/s]  0%|          | 37/29500 [00:14<2:59:37,  2.73it/s]  0%|          | 38/29500 [00:14<2:59:40,  2.73it/s]  0%|          | 39/29500 [00:15<2:59:40,  2.73it/s]  0%|          | 40/29500 [00:15<2:59:42,  2.73it/s]  0%|          | 41/29500 [00:15<2:59:55,  2.73it/s]  0%|          | 42/29500 [00:16<2:59:55,  2.73it/s]  0%|          | 43/29500 [00:16<2:59:49,  2.73it/s]  0%|          | 44/29500 [00:16<2:59:48,  2.73it/s]  0%|          | 45/29500 [00:17<2:59:42,  2.73it/s]  0%|          | 46/29500 [00:17<2:59:45,  2.73it/s]  0%|          | 47/29500 [00:18<2:59:44,  2.73it/s]  0%|          | 48/29500 [00:18<2:59:41,  2.73it/s]  0%|          | 49/29500 [00:18<2:59:27,  2.74it/s]  0%|          | 50/29500 [00:19<2:59:30,  2.73it/s]  0%|          | 51/29500 [00:19<2:59:32,  2.73it/s]  0%|          | 52/29500 [00:19<2:59:34,  2.73it/s]  0%|          | 53/29500 [00:20<2:59:40,  2.73it/s]  0%|          | 54/29500 [00:20<2:59:33,  2.73it/s]  0%|          | 55/29500 [00:20<2:59:37,  2.73it/s]  0%|          | 56/29500 [00:21<2:59:34,  2.73it/s]  0%|          | 57/29500 [00:21<2:59:31,  2.73it/s]  0%|          | 58/29500 [00:22<2:59:28,  2.73it/s]  0%|          | 59/29500 [00:22<2:59:36,  2.73it/s]  0%|          | 60/29500 [00:22<2:59:39,  2.73it/s]  0%|          | 61/29500 [00:23<2:59:34,  2.73it/s]  0%|          | 62/29500 [00:23<2:59:33,  2.73it/s]  0%|          | 63/29500 [00:23<2:59:30,  2.73it/s]  0%|          | 64/29500 [00:24<2:59:28,  2.73it/s]  0%|          | 65/29500 [00:24<2:59:29,  2.73it/s]  0%|          | 66/29500 [00:25<2:59:27,  2.73it/s]  0%|          | 67/29500 [00:25<2:59:24,  2.73it/s]  0%|          | 68/29500 [00:25<2:59:21,  2.73it/s]  0%|          | 69/29500 [00:26<2:59:24,  2.73it/s]  0%|          | 70/29500 [00:26<2:59:17,  2.74it/s]  0%|          | 71/29500 [00:26<2:59:43,  2.73it/s]  0%|          | 72/29500 [00:27<2:59:36,  2.73it/s]  0%|          | 73/29500 [00:27<2:59:34,  2.73it/s]  0%|          | 74/29500 [00:27<2:59:30,  2.73it/s]  0%|          | 75/29500 [00:28<2:59:28,  2.73it/s]  0%|          | 76/29500 [00:28<2:59:31,  2.73it/s]  0%|          | 77/29500 [00:29<2:59:35,  2.73it/s]  0%|          | 78/29500 [00:29<2:59:34,  2.73it/s]  0%|          | 79/29500 [00:29<2:59:29,  2.73it/s]  0%|          | 80/29500 [00:30<2:59:14,  2.74it/s]  0%|          | 81/29500 [00:30<2:59:11,  2.74it/s]  0%|          | 82/29500 [00:30<2:59:14,  2.74it/s]  0%|          | 83/29500 [00:31<2:59:16,  2.73it/s]  0%|          | 84/29500 [00:31<2:59:21,  2.73it/s]slurmstepd: error: *** JOB 10764468 ON gpua047 CANCELLED AT 2025-06-22T20:43:34 ***

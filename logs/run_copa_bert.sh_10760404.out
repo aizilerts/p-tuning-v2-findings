@@ -1,0 +1,199 @@
+2025-06-22 15:03:58,208 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+2025-06-22 15:03:58,210 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.EPOCH,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.01,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=checkpoints/copa-bert/runs/Jun22_15-03-57_gpua027.delta.ncsa.illinois.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=80.0,
+output_dir=checkpoints/copa-bert/,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=checkpoints/copa-bert/,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.NO,
+save_total_limit=None,
+seed=44,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+2025-06-22 15:04:02,126 - INFO - datasets.info - Loading Dataset Infos from /u/achen12/.cache/huggingface/modules/datasets_modules/datasets/super_glue/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83
+2025-06-22 15:04:02,131 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+2025-06-22 15:04:02,131 - INFO - datasets.info - Loading Dataset info from /u/achen12/.cache/huggingface/datasets/super_glue/copa/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83
+2025-06-22 15:04:02,134 - WARNING - datasets.builder - Reusing dataset super_glue (/u/achen12/.cache/huggingface/datasets/super_glue/copa/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83)
+2025-06-22 15:04:02,134 - INFO - datasets.info - Loading Dataset info from /u/achen12/.cache/huggingface/datasets/super_glue/copa/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83
+2025-06-22 15:04:02,142 - WARNING - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7fddd4129f70> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+2025-06-22 15:04:02,142 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/copa/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-852010116895cea8.arrow
+2025-06-22 15:04:02,146 - INFO - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7fddd41298b0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+2025-06-22 15:04:02,146 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/copa/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-b39cfd4b8abead78.arrow
+2025-06-22 15:04:02,149 - INFO - datasets.fingerprint - Parameter 'function'=<function SuperGlueDataset.preprocess_function at 0x7fddd4129f70> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+2025-06-22 15:04:02,150 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /u/achen12/.cache/huggingface/datasets/super_glue/copa/1.0.2/2fb163bca9085c1deb906aff20f00c242227ff704a4e8c9cfdfe820be3abfc83/cache-1ddd2106dcae6e9f.arrow
+2025-06-22 15:04:03,758 - INFO - tasks.superglue.get_trainer - Sample 90 of the training set: {'attention_mask': [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'choice1': 'I put my shoes on.', 'choice2': 'I shook my foot.', 'idx': 90, 'input_ids': [[101, 1422, 2555, 1355, 18152, 119, 1177, 102, 146, 1508, 1139, 5743, 1113, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [101, 1422, 2555, 1355, 18152, 119, 1177, 102, 146, 2291, 1139, 2555, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'label': 1, 'premise': 'My foot went numb.', 'question': 'effect', 'text_a': 'My foot went numb. so', 'token_type_ids': [[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}.
+2025-06-22 15:04:03,759 - INFO - tasks.superglue.get_trainer - Sample 194 of the training set: {'attention_mask': [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'choice1': 'The girl launched it.', 'choice2': 'The girl designed it.', 'idx': 194, 'input_ids': [[101, 1109, 8964, 4843, 1146, 1154, 1103, 3901, 119, 1272, 102, 1109, 1873, 2536, 1122, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [101, 1109, 8964, 4843, 1146, 1154, 1103, 3901, 119, 1272, 102, 1109, 1873, 2011, 1122, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'label': 0, 'premise': 'The rocket flew up into the sky.', 'question': 'cause', 'text_a': 'The rocket flew up into the sky. because', 'token_type_ids': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}.
+2025-06-22 15:04:03,759 - INFO - tasks.superglue.get_trainer - Sample 115 of the training set: {'attention_mask': [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'choice1': 'I found a better-paying job.', 'choice2': 'My son was born.', 'idx': 115, 'input_ids': [[101, 146, 1427, 1106, 170, 1207, 1331, 119, 1272, 102, 146, 1276, 170, 1618, 118, 6573, 2261, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [101, 146, 1427, 1106, 170, 1207, 1331, 119, 1272, 102, 1422, 1488, 1108, 1255, 119, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 'label': 0, 'premise': 'I moved to a new city.', 'question': 'cause', 'text_a': 'I moved to a new city. because', 'token_type_ids': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}.
+total param is 787457
+2025-06-22 15:04:18,271 - INFO - tasks.superglue.dataset - compute_metrics called
+2025-06-22 15:04:18,273 - INFO - tasks.superglue.dataset - Prediction vectors (logits/probabilities):
+[[ 3.0903945   2.487555  ]
+ [ 0.21072301  2.9901464 ]
+ [ 3.0280745   2.606091  ]
+ [ 0.7557404  -0.45961913]
+ [ 3.095914    3.143773  ]
+ [ 1.4659588   2.767753  ]
+ [-1.443923    2.2102594 ]
+ [ 1.734701    0.09669051]
+ [ 2.9989035   3.0170708 ]
+ [ 0.96303564  1.401556  ]
+ [ 3.1411843   3.167904  ]
+ [ 2.8815632   2.8161228 ]
+ [ 2.1092734   3.1062248 ]
+ [ 2.1183858   2.9300914 ]
+ [ 3.0901523   2.8624678 ]
+ [ 3.1314363   3.1550965 ]
+ [ 3.0945027   3.1841512 ]
+ [ 2.917644    2.668334  ]
+ [ 2.7315252   2.4639773 ]
+ [ 2.8578467   0.79385805]
+ [ 3.1734602   2.9840987 ]
+ [-8.148342   -0.68020165]
+ [ 3.1472507   2.992546  ]
+ [ 0.2083678   2.6935265 ]
+ [ 3.1405032   3.1761158 ]
+ [ 3.0975747   2.6709535 ]
+ [ 1.5436223   1.683631  ]
+ [ 0.68710315  1.2347649 ]
+ [ 3.1313436   3.1358292 ]
+ [-3.2225413   2.0748048 ]
+ [ 3.1685586   3.102294  ]
+ [ 2.7047906   2.1410902 ]
+ [ 2.7583237  -5.734215  ]
+ [ 3.0813603   0.9342601 ]
+ [ 3.2022533   3.2031019 ]
+ [ 2.6625538   2.7910323 ]
+ [-7.9670663   1.3571142 ]
+ [ 2.3522606   2.5924785 ]
+ [ 3.0097504   3.064115  ]
+ [ 2.701449    2.2544801 ]
+ [ 3.2059894   3.1806717 ]
+ [ 3.116859    3.1628475 ]
+ [ 2.9947197   3.038876  ]
+ [ 2.14717     3.1815782 ]
+ [ 3.2163308   3.2118053 ]
+ [ 2.9812562   3.015576  ]
+ [ 1.1333132  -8.379041  ]
+ [ 2.66809     2.5825086 ]
+ [ 0.6486111   1.6745747 ]
+ [ 3.219698    3.1255727 ]
+ [ 2.5172834   0.5516639 ]
+ [ 3.03508     3.157506  ]
+ [ 2.4602232   1.6089218 ]
+ [ 2.431185    1.3329586 ]
+ [ 1.1904925   1.36246   ]
+ [ 2.978419    2.546555  ]
+ [ 0.92190444  2.4243555 ]
+ [ 3.116517    2.534936  ]
+ [ 0.4846799   0.8038078 ]
+ [ 3.0272138   2.5495064 ]
+ [ 2.6821394   3.0050063 ]
+ [ 2.2715902   2.90831   ]
+ [ 1.5726534   2.532721  ]
+ [ 2.1756415   1.0008321 ]
+ [ 2.9213037   2.9475753 ]
+ [ 2.1995506   2.7844064 ]
+ [ 2.943774    2.987593  ]
+ [ 2.1361196  -4.6600723 ]
+ [ 1.6554596  -2.1212184 ]
+ [ 1.7427729   1.2448524 ]
+ [ 2.368682    1.5381116 ]
+ [ 3.2158773   3.0332062 ]
+ [ 3.1635003   3.049898  ]
+ [-1.8472089   2.0591393 ]
+ [ 2.0227733   2.665605  ]
+ [ 3.1434393   3.0642118 ]
+ [ 3.0043151   3.1087847 ]
+ [ 2.7170298   2.2911026 ]
+ [ 1.7632746   2.5652442 ]
+ [ 2.788125    2.3548932 ]
+ [ 2.4343681   3.0486035 ]
+ [ 3.0720794   3.0377004 ]
+ [ 3.1281767   3.134014  ]
+ [ 2.2123184   2.9912095 ]
+ [ 1.4626279   2.5565643 ]
+ [ 2.1601171   1.8378837 ]
+ [ 3.1638205   3.197279  ]
+ [ 2.8050148   2.1385858 ]
+ [ 3.1994212   2.8929782 ]
+ [ 3.1454942   1.5430272 ]
+ [ 2.7353618   3.0920856 ]
+ [ 1.17346     2.3415236 ]
+ [ 2.270545    3.0665584 ]
+ [ 2.4467816   1.3600587 ]
+ [ 3.1740556   2.255381  ]
+ [ 0.04551122  0.41810372]
+ [ 0.38915226 -1.9104133 ]
+ [ 2.9293928   2.9741237 ]
+ [ 3.1256351   2.8062272 ]
+ [-1.6612567   1.6990703 ]]
