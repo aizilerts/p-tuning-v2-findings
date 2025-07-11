@@ -3,3 +3,8 @@ checkpoints/
 logs/
 training.log
 trainingcopabert.log
+checkpoints/copa-bert/all_results.json
+checkpoints/copa-bert/best_results.json
+checkpoints/copa-bert/train_results.json
+checkpoints/copa-bert/trainer_state.json
+training.log
